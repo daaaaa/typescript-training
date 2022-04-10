@@ -1,0 +1,1 @@
+This project will help me on teaching TS following the Essential Typescript 4 by Adam Freeman.
