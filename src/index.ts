@@ -17,6 +17,7 @@ let newId: number = collection.addTodo("Go for run")
 let todoItem: TodoItem = collection.getTodoById(newId)
 
 // collection.addTodo(todoItem)
+collection.removeComplete()
 collection.getTodoItems(true).forEach(
     item => item.printDetails()
 )
