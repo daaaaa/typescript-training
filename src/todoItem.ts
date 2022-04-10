@@ -9,6 +9,6 @@ export class TodoItem {
      * printDetails
      */
     printDetails(): void {
-        console.log(`${this.id}\t${this.task}${this.complete ? "\tcomplete" : ""}`)
+        console.log(`${this.id}\t${this.task}${this.complete ? "\t(complete)" : ""}`)
     }
 }
