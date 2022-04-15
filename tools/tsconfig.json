@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
-        "target": "ES3",
+        "target": "ES5",
+        "lib": ["es5", "dom", "ES2015.Collection"],
         "outDir": "./dist",
         "rootDir": "./src",
         "noEmitOnError": true
