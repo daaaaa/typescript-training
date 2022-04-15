@@ -1,5 +1,6 @@
 function printMessage(msg) {
-    console.log(`Message: ${msg}`);
+    console.log("Message: " + msg);
 }
-printMessage("Hello, TypeScript");
+var message = "Hello, TypeScript";
+printMessage(message);
 printMessage("It is sunny today");
