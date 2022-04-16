@@ -21,24 +21,22 @@ if (typeof taxNumberTypeOf === "number") {
     console.log(taxNumberTypeOf.toFixed(20))
 }
 
-const taxFormatTypeOf: string | number = calculateTax(10, false)!
-switch (typeof taxFormatTypeOf) {
-    case "number":
-        console.log(`Number Value: ${taxFormatTypeOf.toFixed(2)}`)
-        break;
-    case "string":
-        console.log(`String Value: ${taxFormatTypeOf.charAt(0)}`)
-        break
-    default:
-        if (taxFormatTypeOf === null) {
-            console.log("value is null")
-        } else {
-            console.log(`type: ${typeof taxFormatTypeOf}`);
-            const value: never = taxFormatTypeOf;
-            console.log(`Unexpected type for value: ${value}`);
-            
-        }
+const taxFormatTypeOf: string | number | null = calculateTax(10, false)
+
+if (taxFormatTypeOf !== null) {
+    const nonNulltaxFormatTypeOf: string | number = taxFormatTypeOf
+    switch (typeof taxFormatTypeOf) {
+        case "number":
+            console.log(`Number Value: ${taxFormatTypeOf.toFixed(2)}`)
+            break;
+        case "string":
+            console.log(`String Value: ${taxFormatTypeOf.charAt(0)}`)
+            break
+    }
+} else {
+    console.log("Value is not a string or a number")
 }
+
 
 const newResult: unknown = calculateTax(300, false)
 const myNumber: number = newResult as number
