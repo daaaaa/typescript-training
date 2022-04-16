@@ -5,5 +5,6 @@ function calculateTax(amount, format) {
 const price = 100;
 const taxNumber = calculateTax(price, false);
 const taxFormat = calculateTax(price, true);
-console.log(taxNumber);
-console.log(taxFormat);
+console.log(taxNumber.toString);
+console.log(taxNumber.toFixed(2));
+console.log(taxFormat.charAt(0));
