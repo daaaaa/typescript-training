@@ -5,3 +5,5 @@ declare const taxFormat: string;
 declare const taxBoolean: boolean;
 declare const taxNumberTypeOf: string | number;
 declare const taxFormatTypeOf: string | number;
+declare const newResult: unknown;
+declare const myNumber: number;

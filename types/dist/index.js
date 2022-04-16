@@ -26,3 +26,6 @@ switch (typeof taxFormatTypeOf) {
         const value = taxFormatTypeOf;
         console.log(`Unexpected type for value: ${value}`);
 }
+const newResult = calculateTax(300, false);
+const myNumber = newResult;
+console.log(`myNumber value: ${myNumber.toFixed(2)}`);
