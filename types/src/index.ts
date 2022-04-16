@@ -4,8 +4,8 @@ function calculateTax(amount: number, format: boolean): number | string {
 }
 
 const price = 100
-const taxNumber: string | number = calculateTax(price, false)
-const taxFormat: number | string = calculateTax(price, true)
+const taxNumber: number = calculateTax(price, false) as number
+const taxFormat: string = <string> calculateTax(price, true)
 
 console.log(taxNumber.toString)
 console.log(taxNumber.toFixed(2))
