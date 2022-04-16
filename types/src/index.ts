@@ -1,5 +1,5 @@
 function calculateTax(amount: number): any {
-    return (amount * 1.2).toFixed(2)
+    return "$" + (amount * 1.2).toFixed(2)
 }
 
 const price: number = 12
