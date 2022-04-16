@@ -11,5 +11,5 @@ printMessage("It is sunny today")
 
 debugger
 
-let total = sum(100, 200, 300);
+let total = sum(100, 200, 300, 400);
 console.log(`Total: ${total}`);
