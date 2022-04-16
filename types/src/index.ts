@@ -21,7 +21,7 @@ if (typeof taxNumberTypeOf === "number") {
     console.log(taxNumberTypeOf.toFixed(20))
 }
 
-const taxFormatTypeOf: string | number | null = calculateTax(0, false)
+const taxFormatTypeOf: string | number = calculateTax(10, false)!
 switch (typeof taxFormatTypeOf) {
     case "number":
         console.log(`Number Value: ${taxFormatTypeOf.toFixed(2)}`)

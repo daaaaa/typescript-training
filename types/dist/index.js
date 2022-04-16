@@ -26,8 +26,14 @@ switch (typeof taxFormatTypeOf) {
         console.log(`String Value: ${taxFormatTypeOf.charAt(0)}`);
         break;
     default:
-        const value = taxFormatTypeOf;
-        console.log(`Unexpected type for value: ${value}`);
+        if (taxFormatTypeOf === null) {
+            console.log("value is null");
+        }
+        else {
+            console.log(`type: ${typeof taxFormatTypeOf}`);
+            const value = taxFormatTypeOf;
+            console.log(`Unexpected type for value: ${value}`);
+        }
 }
 const newResult = calculateTax(300, false);
 const myNumber = newResult;
