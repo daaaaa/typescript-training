@@ -1,20 +1,11 @@
-function calculateTax(amount): any {
-    return "$" + (amount * 1.2).toFixed(2)
+function calculateTax(amount: number, format: boolean): number | string {
+    const taxedAmount: number = amount * 1.2
+    return format ? "$" + taxedAmount.toFixed(2) : taxedAmount
 }
 
-const price: number = 12
-console.log(`No TAX price: ${price} - TAX Price: ${calculateTax(price)}`)
+const price = 100
+const taxNumber = calculateTax(price, false)
+const taxFormat = calculateTax(price, true)
 
-// const stringPrice = "12"
-// console.log(`No TAX price: ${stringPrice} - TAX stringPrice: ${calculateTax(stringPrice)}`)
-
-const halfTotalPrice = calculateTax(price) / 2
-
-console.log(`The halved price is ${halfTotalPrice}`);
-
-// const newResult: any = calculateTax(200)
-// const myNumber: number = newResult
-// console.log(`Number value: ${myNumber.toFixed(2)}`)
-
-let personVal = calculateTax("Bob");
-console.log(`Name: ${personVal}`);
+console.log(taxNumber)
+console.log(taxFormat)

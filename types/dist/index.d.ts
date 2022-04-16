@@ -1,4 +1,4 @@
-declare function calculateTax(amount: any): any;
-declare const price: number;
-declare const halfTotalPrice: number;
-declare let personVal: any;
+declare function calculateTax(amount: number, format: boolean): number | string;
+declare const price = 100;
+declare const taxNumber: string | number;
+declare const taxFormat: string | number;
