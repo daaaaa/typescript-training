@@ -9,5 +9,5 @@ const message = "Hello, TypeScript"
 printMessage(message)
 printMessage("It is sunny today")
 
-let total = sum(100, 200, 300, 400);
+const total = sum(100, 200, 300, 400);
 console.log(`Total: ${total}`);

@@ -7,6 +7,6 @@ function printMessage(msg) {
 const message = "Hello, TypeScript";
 printMessage(message);
 printMessage("It is sunny today");
-let total = (0, calc_1.sum)(100, 200, 300, 400);
+const total = calc_1.sum(100, 200, 300, 400);
 console.log(`Total: ${total}`);
 //# sourceMappingURL=index.js.map
