@@ -9,6 +9,6 @@ function writePrice(product: string, price: number): void {
 const prices = [100, 75, 42, "20"]
 const names = ["Hat", "Gloves", "Umbrella", "Sunglasses"]
 
-prices.forEach((price: number, index: number) => {
+prices.forEach((price, index) => {
     writePrice(names[index], calculateTax(price))
 })
