@@ -32,5 +32,5 @@ switch (typeof taxFormatTypeOf) {
 }
 
 const newResult: unknown = calculateTax(300, false)
-const myNumber: number = newResult
+const myNumber: number = newResult as number
 console.log(`myNumber value: ${myNumber.toFixed(2)}`)
