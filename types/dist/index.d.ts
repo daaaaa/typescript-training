@@ -1,3 +1,3 @@
-declare function calculateTax(amount: number): string;
+declare function calculateTax(amount: number): any;
 declare const price: number;
 declare const halfTotalPrice: number;
