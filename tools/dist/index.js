@@ -1,10 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const calc_1 = require("./calc");
 function printMessage(msg) {
-    console.log("Message: ".concat(msg));
+    console.log(`Message: ${msg}`);
 }
-var message = "Hello, TypeScript";
+let message = "Hello, TypeScript";
 printMessage(message);
 printMessage("It is sunny today");
-var data = new Map();
-data.set("Bob", "London");
-data.set("Alice", "Paris");
-data.forEach(function (val, key) { return console.log("".concat(key, " lives in ").concat(val)); });
+debugger;
+let total = calc_1.sum(100, 200, 300);
+console.log(`Total: ${total}`);
+//# sourceMappingURL=index.js.map
