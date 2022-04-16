@@ -1,11 +1,11 @@
-function check(expression: boolean): asserts expression {
-    if (!expression) {
-        throw new Error("Expression is false")
+function check(val: any): asserts val is number {
+    if (typeof val != "number") {
+        throw new Error("Not a number")
     }
 }
 
 function calculateTax(amount: number | null): number {
-    check(typeof amount == "number")
+    check(amount)
     return amount * 1.2
 }
 
