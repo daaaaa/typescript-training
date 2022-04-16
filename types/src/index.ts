@@ -25,5 +25,8 @@ switch (typeof taxFormatTypeOf) {
         break;
     case "string":
         console.log(`String Value: ${taxFormatTypeOf.charAt(0)}`)
-    break
+        break
+    default:
+        const value: never = taxFormatTypeOf;
+        console.log(`Unexpected type for value: ${value}`);
 }
