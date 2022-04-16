@@ -21,7 +21,8 @@ if (typeof taxNumberTypeOf === "number") {
     console.log(taxNumberTypeOf.toFixed(20))
 }
 
-const taxFormatTypeOf: string | number | null = calculateTax(10, false)
+let taxFormatTypeOf: string | number | null
+eval("taxFormatTypeOf = calculateTax(10, false)")
 
 if (taxFormatTypeOf !== null) {
     const nonNulltaxFormatTypeOf: string | number = taxFormatTypeOf
