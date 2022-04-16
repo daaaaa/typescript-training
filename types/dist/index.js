@@ -1,7 +1,5 @@
 function calculateTax(amount, discount = 0, ...extraFees) {
-    if (amount !== null) {
-        return (amount * 1.2) - discount + extraFees.reduce((tot, next) => tot + next, 0);
-    }
+    return (amount * 1.2) - discount + extraFees.reduce((tot, next) => tot + next, 0);
 }
 const taxValue = calculateTax(100, 0);
 console.log(`Total Amount: ${taxValue}`);
@@ -11,5 +9,7 @@ const taxValueThree = calculateTax(199, 10, 11);
 console.log(`Total Amount three: ${taxValueThree}`);
 const taxValueFour = calculateTax(199, 10, 1, 2, 3, 4, 5, 6);
 console.log(`Total Amount four: ${taxValueFour}`);
-const taxValueFive = calculateTax(null, 0);
-console.log(`Total Amount five: ${taxValueFive}`);
+function writeValue(label, value) {
+    console.log(`${label}: ${value}`);
+}
+writeValue("Tax value", taxValue);

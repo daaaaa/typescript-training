@@ -1,6 +1,6 @@
-declare function calculateTax(amount: number | null, discount?: number, ...extraFees: number[]): number | undefined;
-declare const taxValue: number | undefined;
-declare const taxValueTwo: number | undefined;
-declare const taxValueThree: number | undefined;
-declare const taxValueFour: number | undefined;
-declare const taxValueFive: number | undefined;
+declare function calculateTax(amount: number, discount?: number, ...extraFees: number[]): number;
+declare const taxValue: number;
+declare const taxValueTwo: number;
+declare const taxValueThree: number;
+declare const taxValueFour: number;
+declare function writeValue(label: string, value: number): void;
