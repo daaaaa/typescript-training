@@ -1,4 +1,7 @@
 function calculateTax(amount: number, format: boolean): number | string {
+    if (amount === 0) {
+        return null
+    }
     const taxedAmount: number = amount * 1.2
     return format ? "$" + taxedAmount.toFixed(2) : taxedAmount
 }
@@ -18,7 +21,7 @@ if (typeof taxNumberTypeOf === "number") {
     console.log(taxNumberTypeOf.toFixed(20))
 }
 
-const taxFormatTypeOf = calculateTax(100, false)
+const taxFormatTypeOf: string | number = calculateTax(0, false)
 switch (typeof taxFormatTypeOf) {
     case "number":
         console.log(`Number Value: ${taxFormatTypeOf.toFixed(2)}`)
