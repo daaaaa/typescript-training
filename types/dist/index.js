@@ -8,4 +8,6 @@ console.log(`Total Amount two: ${taxValueTwo}`);
 const taxValueThree = calculateTax(199, 10, 11);
 console.log(`Total Amount three: ${taxValueThree}`);
 const taxValueFour = calculateTax(199, 10, 1, 2, 3, 4, 5, 6);
-console.log(`Total Amount three: ${taxValueFour}`);
+console.log(`Total Amount four: ${taxValueFour}`);
+const taxValueFive = calculateTax(null, 0);
+console.log(`Total Amount five: ${taxValueFive}`);
