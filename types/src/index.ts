@@ -1,4 +1,4 @@
-function calculateTax(amount: number): any {
+function calculateTax(amount): any {
     return "$" + (amount * 1.2).toFixed(2)
 }
 
@@ -12,6 +12,9 @@ const halfTotalPrice = calculateTax(price) / 2
 
 console.log(`The halved price is ${halfTotalPrice}`);
 
-const newResult: any = calculateTax(200)
-const myNumber: number = newResult
-console.log(`Number value: ${myNumber.toFixed(2)}`)
+// const newResult: any = calculateTax(200)
+// const myNumber: number = newResult
+// console.log(`Number value: ${myNumber.toFixed(2)}`)
+
+let personVal = calculateTax("Bob");
+console.log(`Name: ${personVal}`);

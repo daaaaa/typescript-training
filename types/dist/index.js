@@ -7,6 +7,8 @@ console.log(`No TAX price: ${price} - TAX Price: ${calculateTax(price)}`);
 // console.log(`No TAX price: ${stringPrice} - TAX stringPrice: ${calculateTax(stringPrice)}`)
 const halfTotalPrice = calculateTax(price) / 2;
 console.log(`The halved price is ${halfTotalPrice}`);
-const newResult = calculateTax(200);
-const myNumber = newResult;
-console.log(`Number value: ${myNumber.toFixed(2)}`);
+// const newResult: any = calculateTax(200)
+// const myNumber: number = newResult
+// console.log(`Number value: ${myNumber.toFixed(2)}`)
+let personVal = calculateTax("Bob");
+console.log(`Name: ${personVal}`);

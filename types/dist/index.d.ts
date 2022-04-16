@@ -1,5 +1,4 @@
-declare function calculateTax(amount: number): any;
+declare function calculateTax(amount: any): any;
 declare const price: number;
 declare const halfTotalPrice: number;
-declare const newResult: any;
-declare const myNumber: number;
+declare let personVal: any;
