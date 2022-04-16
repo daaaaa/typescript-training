@@ -1,10 +1,10 @@
-function check(expression: boolean) {
+function check(expression: boolean): asserts expression {
     if (!expression) {
         throw new Error("Expression is false")
     }
 }
 
-function calculateTax(amount: number | null): number | null {
+function calculateTax(amount: number | null): number {
     check(typeof amount == "number")
     return amount * 1.2
 }
