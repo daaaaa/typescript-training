@@ -1,10 +1,12 @@
-function calculateTax(amount: number): number
-function calculateTax(amount: null): null
-function calculateTax(amount: number | null): number | null {
-    if (amount !== null) {
-        return amount * 1.2
+function check(expression: boolean) {
+    if (!expression) {
+        throw new Error("Expression is false")
     }
-    return null
+}
+
+function calculateTax(amount: number | null): number | null {
+    check(typeof amount == "number")
+    return amount * 1.2
 }
 
 function writeValue(label: string, value: number): void {
