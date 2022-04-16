@@ -1,13 +1,11 @@
 function calculateTax(amount) {
-    if (amount !== null) {
-        return amount * 1.2;
-    }
-    return null;
+    return amount * 1.2;
 }
-function writeValue(label, value) {
-    console.log(`${label}: ${value}`);
+function writePrice(product, price) {
+    console.log(`Price for ${product}: $${price.toFixed(2)}`);
 }
-const taxValue = calculateTax(100);
-if (typeof taxValue === "number") {
-    writeValue("Tax value", taxValue);
-}
+const prices = [100, 75, 42];
+const names = ["Hat", "Gloves", "Umbrella"];
+writePrice(names[0], calculateTax(prices[0]));
+writePrice(names[1], calculateTax(prices[1]));
+writePrice(names[2], calculateTax(prices[2]));

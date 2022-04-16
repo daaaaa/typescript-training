@@ -1,17 +1,14 @@
-function check(val: any): asserts val is number {
-    if (typeof val != "number") {
-        throw new Error("Not a number")
-    }
-}
-
-function calculateTax(amount: number | null): number {
-    check(amount)
+function calculateTax(amount: number): number {
     return amount * 1.2
 }
 
-function writeValue(label: string, value: number): void {
-    console.log(`${label}: ${value}`)
+function writePrice(product: string, price: number): void {
+    console.log(`Price for ${product}: $${price.toFixed(2)}`)
 }
 
-const taxValue: number = calculateTax(100)
-writeValue("Tax value", taxValue)
+const prices: number[] = [100, 75, 42]
+const names: string[] = ["Hat", "Gloves", "Umbrella"]
+
+writePrice(names[0], calculateTax(prices[0]))
+writePrice(names[1], calculateTax(prices[1]))
+writePrice(names[2], calculateTax(prices[2]))

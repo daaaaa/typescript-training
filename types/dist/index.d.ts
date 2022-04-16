@@ -1,3 +1,4 @@
-declare function calculateTax(amount: number | null): number | null;
-declare function writeValue(label: string, value: number): void;
-declare const taxValue: number | null;
+declare function calculateTax(amount: number): number;
+declare function writePrice(product: string, price: number): void;
+declare const prices: number[];
+declare const names: string[];
