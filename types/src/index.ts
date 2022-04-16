@@ -11,3 +11,7 @@ console.log(`No TAX price: ${price} - TAX Price: ${calculateTax(price)}`)
 const halfTotalPrice = calculateTax(price) / 2
 
 console.log(`The halved price is ${halfTotalPrice}`);
+
+const newResult: any = calculateTax(200)
+const myNumber: number = newResult
+console.log(`Number value: ${myNumber.toFixed(2)}`)
