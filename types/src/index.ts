@@ -1,4 +1,4 @@
-function calculateTax(amount: number, format: boolean): number | string {
+function calculateTax(amount: number, format: boolean): number | string | null {
     if (amount === 0) {
         return null
     }
@@ -21,7 +21,7 @@ if (typeof taxNumberTypeOf === "number") {
     console.log(taxNumberTypeOf.toFixed(20))
 }
 
-const taxFormatTypeOf: string | number = calculateTax(0, false)
+const taxFormatTypeOf: string | number | null = calculateTax(0, false)
 switch (typeof taxFormatTypeOf) {
     case "number":
         console.log(`Number Value: ${taxFormatTypeOf.toFixed(2)}`)
@@ -30,8 +30,14 @@ switch (typeof taxFormatTypeOf) {
         console.log(`String Value: ${taxFormatTypeOf.charAt(0)}`)
         break
     default:
-        const value: never = taxFormatTypeOf;
-        console.log(`Unexpected type for value: ${value}`);
+        if (taxFormatTypeOf === null) {
+            console.log("value is null")
+        } else {
+            console.log(`type: ${typeof taxFormatTypeOf}`);
+            const value: never = taxFormatTypeOf;
+            console.log(`Unexpected type for value: ${value}`);
+            
+        }
 }
 
 const newResult: unknown = calculateTax(300, false)
