@@ -1,4 +1,4 @@
-function calculateTax(amount: number, discount: number = 0, ...extraFees: number[]) {
+function calculateTax(amount: number | null, discount: number = 0, ...extraFees: number[]) {
     return (amount * 1.2) - discount + extraFees.reduce((tot, next) => tot + next, 0)
 }
 
