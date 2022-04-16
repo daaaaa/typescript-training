@@ -6,8 +6,8 @@ function writePrice(product: string, price: number): void {
     console.log(`Price for ${product}: $${price.toFixed(2)}`)
 }
 
-const prices = [100, 75, 42]
-const names = ["Hat", "Gloves", "Umbrella"]
+const prices = [100, 75, 42, "20"]
+const names = ["Hat", "Gloves", "Umbrella", "Sunglasses"]
 
 prices.forEach((price: number, index: number) => {
     writePrice(names[index], calculateTax(price))
