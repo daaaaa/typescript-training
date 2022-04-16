@@ -4,10 +4,9 @@ const calc_1 = require("./calc");
 function printMessage(msg) {
     console.log(`Message: ${msg}`);
 }
-let message = "Hello, TypeScript";
+const message = "Hello, TypeScript";
 printMessage(message);
 printMessage("It is sunny today");
-debugger;
-let total = calc_1.sum(100, 200, 300, 400);
+let total = (0, calc_1.sum)(100, 200, 300, 400);
 console.log(`Total: ${total}`);
 //# sourceMappingURL=index.js.map
