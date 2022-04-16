@@ -10,3 +10,16 @@ console.log(taxNumber.toString);
 console.log(taxNumber.toFixed(2));
 console.log(taxFormat.charAt(0));
 console.log(taxBoolean);
+const taxNumberTypeOf = calculateTax(100, false);
+if (typeof taxNumberTypeOf === "number") {
+    console.log(taxNumberTypeOf.toFixed(20));
+}
+const taxFormatTypeOf = calculateTax(100, false);
+switch (typeof taxFormatTypeOf) {
+    case "number":
+        console.log(`Number Value: ${taxFormatTypeOf.toFixed(2)}`);
+        break;
+    case "string":
+        console.log(`String Value: ${taxFormatTypeOf.charAt(0)}`);
+        break;
+}
