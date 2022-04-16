@@ -1,40 +1,8 @@
-function calculateTax(amount, format) {
-    if (amount === 0) {
-        return null;
-    }
-    const taxedAmount = amount * 1.2;
-    return format ? "$" + taxedAmount.toFixed(2) : taxedAmount;
+function calculateTax(amount) {
+    return amount * 1.2;
 }
-const price = 100;
-const taxNumber = calculateTax(price, false);
-const taxFormat = calculateTax(price, true);
-const taxBoolean = calculateTax(price, false);
-console.log(taxNumber.toString);
-console.log(taxNumber.toFixed(2));
-console.log(taxFormat.charAt(0));
-console.log(taxBoolean);
-const taxNumberTypeOf = calculateTax(100, false);
-if (typeof taxNumberTypeOf === "number") {
-    console.log(taxNumberTypeOf.toFixed(20));
+function calculateTax(amount, discount) {
+    return calculateTax(amount) - discount;
 }
-const taxFormatTypeOf = calculateTax(0, false);
-switch (typeof taxFormatTypeOf) {
-    case "number":
-        console.log(`Number Value: ${taxFormatTypeOf.toFixed(2)}`);
-        break;
-    case "string":
-        console.log(`String Value: ${taxFormatTypeOf.charAt(0)}`);
-        break;
-    default:
-        if (taxFormatTypeOf === null) {
-            console.log("value is null");
-        }
-        else {
-            console.log(`type: ${typeof taxFormatTypeOf}`);
-            const value = taxFormatTypeOf;
-            console.log(`Unexpected type for value: ${value}`);
-        }
-}
-const newResult = calculateTax(300, false);
-const myNumber = newResult;
-console.log(`myNumber value: ${myNumber.toFixed(2)}`);
+let taxValue = calculateTax(100);
+console.log(`Total Amount: ${taxValue}`);
