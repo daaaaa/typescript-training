@@ -25,10 +25,10 @@ const bob = { id: "bsmith", name: "Umbrella", city: "London" }
 const dataItems: (Person | Product)[] = [hat, gloves, umbrella, bob]
 
 dataItems.forEach(item => {
-    if ("city" in item) {
-        console.log(`Person: ${item.name}: ${item.city}`)
-    } else {
+    if ("price" in item) {
         console.log(`Product: ${item.name}: ${item.price}`)
+    } else {
+        console.log(`Person: ${item.name}: ${item.city}`)
     }
     
 })
