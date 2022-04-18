@@ -11,6 +11,22 @@ let typeTest = {}.contact;
 //     { id: "ajones", name: "Alice Jones", city: "Paris" },
 //     { id: "dpeters", name: "Dora Peters", city: "Nwe York" },
 // ]
+const person1 = {
+    id: "bsmith",
+    name: "Bob Smith",
+    city: "London",
+    company: "Acme Co",
+    dept: "Sales",
+    contact: { name: "Alice", phone: 123123123 },
+};
+const person2 = {
+    id: "ajones",
+    name: "Alice Jones",
+    city: "Paris",
+    company: "Acme Co",
+    dept: "Development",
+    contact: { name: "Alice", phone: 123123123 },
+};
 // const employees: Employee[] = [
 //     { id: "bsmith", company: "Acme Co", dept: "Sales" },
 //     { id: "dpeters", company: "Acme Co", dept: "Development" },
