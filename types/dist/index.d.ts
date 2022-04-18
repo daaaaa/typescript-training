@@ -2,6 +2,11 @@ declare const enum Feature {
     Waterproof = 0,
     Insulated = 1
 }
+declare type Product = {
+    name: string;
+    price?: number;
+    hasFeature?(Feature: any): boolean;
+};
 declare const hat: {
     name: string;
     price: number;
@@ -16,8 +21,10 @@ declare const umbrella: {
     waterproof: boolean;
     hasFeature: (feature: Feature) => boolean;
 };
-declare const products: {
+declare const mirrorShades: {
     name: string;
-    price?: number;
-    hasFeature?(Feature: any): boolean;
-}[];
+    price: number;
+    finish: string;
+};
+declare const darkShades: Product;
+declare const products: Product[];

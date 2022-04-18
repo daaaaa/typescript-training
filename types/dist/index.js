@@ -6,5 +6,7 @@ const umbrella = {
     waterproof: true,
     hasFeature: (feature) => feature === 0 /* Waterproof */
 };
-const products = [hat, gloves, umbrella];
+const mirrorShades = { name: "Sunglasses", price: 54, finish: "mirrored" };
+const darkShades = { name: "Sunglasses", price: 54, finish: "mirrored" };
+const products = [hat, gloves, umbrella, mirrorShades, darkShades];
 products.forEach(prod => console.log(`${prod.name}: ${prod.price} - Waterproof: ${prod.hasFeature ? prod.hasFeature(0 /* Waterproof */) : false}`));
