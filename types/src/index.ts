@@ -30,3 +30,7 @@ enum City {
 }
 console.log(`City: ${City.NY}`)
 console.log(`City: ${City.Gorgonzola}`)
+
+const enum Colors { Red, Green, Blue }
+console.log(`Color value: ${Colors.Red}`)
+console.log(`Color value: ${Colors[1]}`)
