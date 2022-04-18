@@ -6,18 +6,15 @@ function writePrice(product: string, price: number): void {
     console.log(`Price for ${product}: $${price.toFixed(2)}`)
 }
 
-const hat: [string, number] = ["Hat", 100]
-const gloves: [string, number] = ["Gloves", 75]
+const hat: [string, number, number?] = ["Hat", 100]
+const gloves: [string, number, number?] = ["Gloves", 75, 10]
+const items = [hat, gloves]
 
-const products: [string, number][] = [hat, gloves]
-const tupleUnion: ([string, number] | boolean)[] = [true, false, hat, ...products]
+items.forEach((tuple) => {
+    let [name, price, taxRate] = tuple
 
-tupleUnion.forEach((elem) => {
-    if (elem instanceof Array) {
-        const [str, num] = elem
-        console.log(`String: ${str}`)
-        console.log(`Number: ${num.toFixed(2)}`)
-    } else {
-        console.log(`Boolean Value: ${elem}`)
+    if (taxRate !== undefined) {
+        price += price * (taxRate / 100)
     }
+    writePrice(name, price)
 })
