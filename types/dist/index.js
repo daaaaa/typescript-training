@@ -6,13 +6,15 @@ function writePrice(product, price) {
 }
 const hat = ["Hat", 100];
 const gloves = ["Gloves", 75];
-hat.forEach((h) => {
-    if (typeof h === "string") {
-        console.log(`String: ${h}`);
+const products = [hat, gloves];
+const tupleUnion = [true, false, hat, ...products];
+tupleUnion.forEach((elem) => {
+    if (elem instanceof Array) {
+        const [str, num] = elem;
+        console.log(`String: ${str}`);
+        console.log(`Number: ${num.toFixed(2)}`);
     }
     else {
-        console.log(`Number: ${h.toFixed(2)}`);
+        console.log(`Boolean Value: ${elem}`);
     }
 });
-let [glovesName, glovesPrice] = gloves;
-writePrice(glovesName, calculateTax(glovesPrice));

@@ -9,13 +9,15 @@ function writePrice(product: string, price: number): void {
 const hat: [string, number] = ["Hat", 100]
 const gloves: [string, number] = ["Gloves", 75]
 
-hat.forEach((h) => {
-    if (typeof h === "string") {
-        console.log(`String: ${h}`)
+const products: [string, number][] = [hat, gloves]
+const tupleUnion: ([string, number] | boolean)[] = [true, false, hat, ...products]
+
+tupleUnion.forEach((elem) => {
+    if (elem instanceof Array) {
+        const [str, num] = elem
+        console.log(`String: ${str}`)
+        console.log(`Number: ${num.toFixed(2)}`)
     } else {
-        console.log(`Number: ${h.toFixed(2)}`)
+        console.log(`Boolean Value: ${elem}`)
     }
 })
-
-let [glovesName, glovesPrice] = gloves
-writePrice(glovesName, calculateTax(glovesPrice))
