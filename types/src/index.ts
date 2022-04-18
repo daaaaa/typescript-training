@@ -37,3 +37,5 @@ console.log(`Color value: ${Colors.Red}`)
 
 const restrictedValue: 1 | 2 | 3 = 3
 console.log(`Restricted value: ${restrictedValue}`)
+
+const restrictedValueNotAllowed: 1 | 2 | 3 = 100

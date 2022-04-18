@@ -13,3 +13,10 @@ declare enum City {
     NY = "New York",
     Gorgonzola = "Gorgonzola"
 }
+declare const enum Colors {
+    Red = 0,
+    Green = 1,
+    Blue = 2
+}
+declare const restrictedValue: 1 | 2 | 3;
+declare const restrictedValueNotAllowed: 1 | 2 | 3;

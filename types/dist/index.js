@@ -30,3 +30,8 @@ var City;
 })(City || (City = {}));
 console.log(`City: ${City.NY}`);
 console.log(`City: ${City.Gorgonzola}`);
+console.log(`Color value: ${0 /* Red */}`);
+// console.log(`Color value: ${Colors[1]}`)
+const restrictedValue = 3;
+console.log(`Restricted value: ${restrictedValue}`);
+const restrictedValueNotAllowed = 100;
