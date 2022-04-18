@@ -9,5 +9,13 @@ function writePrice(product: string, price: number): void {
 const hat: [string, number] = ["Hat", 100]
 const gloves: [string, number] = ["Gloves", 75]
 
-writePrice(hat[0], calculateTax(hat[1]))
-writePrice(gloves[0], calculateTax(gloves[1]))
+hat.forEach((h) => {
+    if (typeof h === "string") {
+        console.log(`String: ${h}`)
+    } else {
+        console.log(`Number: ${h.toFixed(2)}`)
+    }
+})
+
+let [glovesName, glovesPrice] = gloves
+writePrice(glovesName, calculateTax(glovesPrice))
