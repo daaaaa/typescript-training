@@ -19,4 +19,7 @@ declare const enum Colors {
     Blue = 2
 }
 declare const restrictedValue: 1 | 2 | 3;
-declare const restrictedValueNotAllowed: 1 | 2 | 3;
+declare function calculatePrice(quantity: 1 | 2, price: number): number;
+declare const total: number;
+declare function getRandomValue(): 1 | 2 | 3 | 4;
+declare function getMixedValue(): 1 | "Hello" | true | City.London;

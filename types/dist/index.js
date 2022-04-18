@@ -34,4 +34,29 @@ console.log(`Color value: ${0 /* Red */}`);
 // console.log(`Color value: ${Colors[1]}`)
 const restrictedValue = 3;
 console.log(`Restricted value: ${restrictedValue}`);
-const restrictedValueNotAllowed = 100;
+// const restrictedValueNotAllowed: 1 | 2 | 3 = 100
+function calculatePrice(quantity, price) {
+    return quantity * price;
+}
+const total = calculatePrice(2, 19.99);
+console.log(`Price: ${total}`);
+function getRandomValue() {
+    return Math.floor(Math.random() * 4) + 1;
+}
+function getMixedValue() {
+    switch (getRandomValue()) {
+        case 1:
+            return 1;
+            break;
+        case 2:
+            return "Hello";
+            break;
+        case 3:
+            return true;
+            break;
+        case 4:
+            return City.London;
+            break;
+    }
+}
+console.log(`Random value: ${getMixedValue()}`);
