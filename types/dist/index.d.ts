@@ -36,4 +36,4 @@ declare const bob: {
     name: string;
     city: string;
 };
-declare const dataItems: UnionType[];
+declare const dataItems: (Person | Product)[];

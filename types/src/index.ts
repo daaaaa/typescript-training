@@ -22,6 +22,13 @@ const gloves = { id: 2, name: "Gloves", price: 75 }
 const umbrella = { id: 3, name: "Umbrella", price: 30 }
 const bob = { id: "bsmith", name: "Umbrella", city: "London" }
 
-const dataItems: UnionType[] = [hat, gloves, umbrella, bob]
+const dataItems: (Person | Product)[] = [hat, gloves, umbrella, bob]
 
-dataItems.forEach(item => console.log(`ID: ${item.id}, ${item.name}, Type: ${typeof item}`))
+dataItems.forEach(item => {
+    if ("city" in item) {
+        console.log(`Person: ${item.name}: ${item.city}`)
+    } else {
+        console.log(`Product: ${item.name}: ${item.price}`)
+    }
+    
+})
