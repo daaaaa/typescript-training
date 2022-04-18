@@ -8,7 +8,11 @@ declare const gloves: {
 };
 declare const umbrella: {
     name: string;
+    price: number;
+    waterproof: boolean;
 };
 declare const products: {
     name: string;
+    price?: number;
+    waterproof?: boolean;
 }[];
