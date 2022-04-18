@@ -24,11 +24,14 @@ const bob = { id: "bsmith", name: "Umbrella", city: "London" }
 
 const dataItems: (Person | Product)[] = [hat, gloves, umbrella, bob]
 
+function isPerson(testObj: any): testObj is Person {
+    return testObj.city !== undefined
+}
+
 dataItems.forEach(item => {
-    if ("price" in item) {
-        console.log(`Product: ${item.name}: ${item.price}`)
-    } else {
+    if (isPerson(item)) {
         console.log(`Person: ${item.name}: ${item.city}`)
+    } else {
+        console.log(`Product: ${item.name}: ${item.price}`)
     }
-    
 })
