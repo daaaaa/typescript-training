@@ -7,3 +7,9 @@ declare enum Product {
 }
 declare const productValue: Product;
 declare const productName: string;
+declare enum City {
+    London = "London",
+    Paris = "Paris",
+    NY = "New York",
+    Gorgonzola = "Gorgonzola"
+}

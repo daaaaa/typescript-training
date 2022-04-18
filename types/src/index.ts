@@ -8,8 +8,6 @@ function writePrice(product: string, price: number): void {
 
 enum Product { Hat, Gloves = 20, Umbrella }
 
-// let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]]
-
 [Product.Hat, Product.Gloves, Product.Umbrella].forEach((productEnum) => {
     console.log(`Enum value: ${productEnum}`)
 })
@@ -17,3 +15,12 @@ enum Product { Hat, Gloves = 20, Umbrella }
 const productValue: Product = 0
 const productName: string = Product[productValue]
 console.log(`Value: ${productValue}, Name: ${productName}`)
+
+enum City {
+    London = "London",
+    Paris = "Paris",
+    NY = "New York",
+    Gorgonzola = "Gorgonzola"
+}
+console.log(`City: ${City.NY}`)
+console.log(`City: ${City.Gorgonzola}`)
