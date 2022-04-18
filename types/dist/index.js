@@ -40,6 +40,9 @@ function calculatePrice(quantity, price) {
 }
 const total = calculatePrice(2, 19.99);
 console.log(`Price: ${total}`);
+function getRandomValue() {
+    return Math.floor(Math.random() * 4) + 1;
+}
 function getMixedValue(input) {
     switch (input) {
         case 1:

@@ -47,6 +47,12 @@ function calculatePrice(quantity: 1 | 2, price: number): number {
 const total = calculatePrice(2, 19.99)
 console.log(`Price: ${total}`)
 
+type numVals = 1 | 2 | 3 | 4
+
+function getRandomValue(): numVals {
+    return Math.floor(Math.random() * 4) + 1 as numVals
+}
+
 function getMixedValue(input: 1): 1
 function getMixedValue(input: 2 | 3): "Hello" | true
 function getMixedValue(input: 4): City.London
@@ -73,8 +79,11 @@ const first = getMixedValue(1)
 const second = getMixedValue(2)
 const third = getMixedValue(3)
 console.log(first, second, third)
-function getCityString(city: "London" | "Paris" | "Chicago"): `City: ${"London" | "Paris" | "Chicago"}` {
-    return `City: ${city}` as `City: ${"London" | "Paris" | "Chicago"}`
+
+type Cities = "London" | "Paris" | "Chicago"
+type CityResponse = `City: ${Cities}`
+function getCityString(city: Cities): CityResponse {
+    return `City: ${city}` as CityResponse
 }
 
 let stringCity = getCityString("London")
