@@ -12,28 +12,16 @@ declare type Person = {
     name: string;
     city: string;
 };
-declare type UnionType = {
-    id: number | string;
-    name: string;
-};
-declare const hat: {
-    id: number;
-    name: string;
-    price: number;
-};
-declare const gloves: {
-    id: number;
-    name: string;
-    price: number;
-};
-declare const umbrella: {
-    id: number;
-    name: string;
-    price: number;
+declare type Employee = {
+    company: string;
+    dept: string;
 };
 declare const bob: {
     id: string;
     name: string;
     city: string;
+    company: string;
+    dept: string;
 };
-declare const dataItems: (Person | Product)[];
+declare const dataItems: (Person & Employee)[];
+declare function isPerson(testObj: any): testObj is Person;

@@ -12,26 +12,26 @@ type Person = {
     city: string,
 }
 
-type UnionType = {
-    id: number | string,
-    name: string,
+type Employee = {
+    company: string,
+    dept: string,
 }
 
-const hat = { id: 1, name: "Hat", price: 100 }
-const gloves = { id: 2, name: "Gloves", price: 75 }
-const umbrella = { id: 3, name: "Umbrella", price: 30 }
-const bob = { id: "bsmith", name: "Umbrella", city: "London" }
+const bob = {
+    id: "bsmith",
+    name: "Umbrella",
+    city: "London",
+    company: "Acme Co",
+    dept: "Sales",
+}
 
-const dataItems: (Person | Product)[] = [hat, gloves, umbrella, bob]
+const dataItems: (Person & Employee)[] = [bob]
 
 function isPerson(testObj: any): testObj is Person {
     return testObj.city !== undefined
 }
 
 dataItems.forEach(item => {
-    if (isPerson(item)) {
-        console.log(`Person: ${item.name}: ${item.city}`)
-    } else {
-        console.log(`Product: ${item.name}: ${item.price}`)
-    }
+    console.log(`Person: ${item.id}: ${item.name}: ${item.city}`)
+    console.log(`Employee: ${item.id}: ${item.company}: ${item.dept}`)
 })

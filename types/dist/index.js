@@ -1,13 +1,15 @@
-const hat = { id: 1, name: "Hat", price: 100 };
-const gloves = { id: 2, name: "Gloves", price: 75 };
-const umbrella = { id: 3, name: "Umbrella", price: 30 };
-const bob = { id: "bsmith", name: "Umbrella", city: "London" };
-const dataItems = [hat, gloves, umbrella, bob];
+const bob = {
+    id: "bsmith",
+    name: "Umbrella",
+    city: "London",
+    company: "Acme Co",
+    dept: "Sales",
+};
+const dataItems = [bob];
+function isPerson(testObj) {
+    return testObj.city !== undefined;
+}
 dataItems.forEach(item => {
-    if ("city" in item) {
-        console.log(`Person: ${item.name}: ${item.city}`);
-    }
-    else {
-        console.log(`Product: ${item.name}: ${item.price}`);
-    }
+    console.log(`Person: ${item.id}: ${item.name}: ${item.city}`);
+    console.log(`Employee: ${item.id}: ${item.company}: ${item.dept}`);
 });
