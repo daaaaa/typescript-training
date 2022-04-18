@@ -33,4 +33,7 @@ console.log(`City: ${City.Gorgonzola}`)
 
 const enum Colors { Red, Green, Blue }
 console.log(`Color value: ${Colors.Red}`)
-console.log(`Color value: ${Colors[1]}`)
+// console.log(`Color value: ${Colors[1]}`)
+
+const restrictedValue: 1 | 2 | 3 = 3
+console.log(`Restricted value: ${restrictedValue}`)
