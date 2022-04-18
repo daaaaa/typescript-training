@@ -6,16 +6,24 @@ function writePrice(product: string, price: number): void {
     console.log(`Price for ${product}: $${price.toFixed(2)}`)
 }
 
-const hat: [string, number, number?, ...number[]] = ["Hat", 100, 10, 1.20, 3, 0.95]
-const gloves: [string, number, number?, ...number[]] = ["Gloves", 75, 10]
-const items = [hat, gloves]
+enum Product { Hat, Gloves, Umbrella }
 
-items.forEach((tuple) => {
-    let [name, price, taxRate, ...coupons] = tuple
+let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]]
 
-    if (taxRate !== undefined) {
-        price += price * (taxRate / 100)
+products.forEach((tuple) => {
+    let [productType, price] = tuple
+
+    switch (productType) {
+        case Product.Hat:
+            writePrice("Hat", calculateTax(price))
+            break;
+    
+        case Product.Gloves:
+            writePrice("Gloves", calculateTax(price))
+            break;
+        
+        case Product.Umbrella:
+            writePrice("Umbrella", calculateTax(price))
+            break;
     }
-    coupons.forEach(c => price -= c)
-    writePrice(name, price)
 })
