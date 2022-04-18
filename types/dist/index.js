@@ -1,12 +1,6 @@
-const hat = { name: "Hat", price: 100 };
-const gloves = { name: "Gloves", price: 75 };
-const umbrella = {
-    name: "Umbrella",
-    price: 30,
-    waterproof: true,
-    hasFeature: (feature) => feature === 0 /* Waterproof */
-};
-const mirrorShades = { name: "Sunglasses", price: 54, finish: "mirrored" };
-const darkShades = { name: "Sunglasses", price: 54, finish: "mirrored" };
-const products = [hat, gloves, umbrella, mirrorShades, darkShades];
-products.forEach(prod => console.log(`${prod.name}: ${prod.price} - Waterproof: ${prod.hasFeature ? prod.hasFeature(0 /* Waterproof */) : false}`));
+const hat = { id: 1, name: "Hat", price: 100 };
+const gloves = { id: 2, name: "Gloves", price: 75 };
+const umbrella = { id: 3, name: "Umbrella", price: 30 };
+const bob = { id: "bsmith", name: "Umbrella", city: "London" };
+const dataItems = [hat, gloves, umbrella, bob];
+dataItems.forEach(item => console.log(`ID: ${item.id}, ${item.name}`));

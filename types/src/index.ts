@@ -1,23 +1,22 @@
 const enum Feature { Waterproof, Insulated }
 
 type Product = {
+    id: number,
     name: string,
     price?: number,
-    hasFeature?(Feature): boolean
 }
 
-const hat = { name: "Hat", price: 100 }
-const gloves = { name: "Gloves", price: 75 }
-const umbrella = {
-    name: "Umbrella",
-    price: 30,
-    waterproof: true,
-    hasFeature: (feature: Feature) => feature === Feature.Waterproof
+type Person = {
+    id: string,
+    name: string,
+    city: string,
 }
 
-const mirrorShades = { name: "Sunglasses", price: 54, finish: "mirrored" }
-const darkShades: Product = { name: "Sunglasses", price: 54, finish: "mirrored" }
+const hat = { id: 1, name: "Hat", price: 100 }
+const gloves = { id: 2, name: "Gloves", price: 75 }
+const umbrella = { id: 3, name: "Umbrella", price: 30 }
+const bob = { id: "bsmith", name: "Umbrella", city: "London" }
 
-const products: Product[] = [hat, gloves, umbrella, mirrorShades, darkShades]
+const dataItems: (Product | Person)[] = [hat, gloves, umbrella, bob]
 
-products.forEach(prod => console.log(`${prod.name}: ${prod.price} - Waterproof: ${prod.hasFeature ? prod.hasFeature(Feature.Waterproof) : false}`))
+dataItems.forEach(item => console.log(`ID: ${item.id}, ${item.name}`))
