@@ -6,7 +6,9 @@ declare const gloves: {
     name: string;
     price: number;
 };
+declare const umbrella: {
+    name: string;
+};
 declare const products: {
     name: string;
-    price: number;
 }[];
