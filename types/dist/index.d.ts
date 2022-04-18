@@ -5,3 +5,5 @@ declare enum Product {
     Gloves = 1,
     Umbrella = 2
 }
+declare const productValue: Product;
+declare const productName: string;

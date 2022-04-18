@@ -13,3 +13,7 @@ enum Product { Hat, Gloves, Umbrella }
 [Product.Hat, Product.Gloves, Product.Umbrella].forEach((productEnum) => {
     console.log(`Enum value: ${productEnum}`)
 })
+
+const productValue: Product = 0
+const productName: string = Product[productValue]
+console.log(`Value: ${productValue}, Name: ${productName}`)
