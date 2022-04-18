@@ -6,7 +6,7 @@ function writePrice(product: string, price: number): void {
     console.log(`Price for ${product}: $${price.toFixed(2)}`)
 }
 
-enum Product { Hat, Gloves, Umbrella }
+enum Product { Hat, Gloves = 20, Umbrella }
 
 // let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]]
 

@@ -7,8 +7,8 @@ function writePrice(product, price) {
 var Product;
 (function (Product) {
     Product[Product["Hat"] = 0] = "Hat";
-    Product[Product["Gloves"] = 1] = "Gloves";
-    Product[Product["Umbrella"] = 2] = "Umbrella";
+    Product[Product["Gloves"] = 20] = "Gloves";
+    Product[Product["Umbrella"] = 21] = "Umbrella";
 })(Product || (Product = {}));
 // let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]]
 [Product.Hat, Product.Gloves, Product.Umbrella].forEach((productEnum) => {
