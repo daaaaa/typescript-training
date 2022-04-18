@@ -24,4 +24,4 @@ const bob = { id: "bsmith", name: "Umbrella", city: "London" }
 
 const dataItems: UnionType[] = [hat, gloves, umbrella, bob]
 
-dataItems.forEach(item => console.log(`ID: ${item.id}, ${item.name}`))
+dataItems.forEach(item => console.log(`ID: ${item.id}, ${item.name}, Type: ${typeof item}`))

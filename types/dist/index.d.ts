@@ -12,6 +12,10 @@ declare type Person = {
     name: string;
     city: string;
 };
+declare type UnionType = {
+    id: number | string;
+    name: string;
+};
 declare const hat: {
     id: number;
     name: string;
@@ -32,4 +36,4 @@ declare const bob: {
     name: string;
     city: string;
 };
-declare const dataItems: (Product | Person)[];
+declare const dataItems: UnionType[];
