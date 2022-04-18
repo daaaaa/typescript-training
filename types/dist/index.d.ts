@@ -11,17 +11,16 @@ declare type Person = {
     id: string;
     name: string;
     city: string;
+    contact: number;
 };
 declare type Employee = {
     id: string;
     company: string;
     dept: string;
+    contact: string;
 };
 declare type EmployedPerson = Person & Employee;
-declare function correlateData(peopleData: Person[], staff: Employee[]): EmployedPerson[];
-declare const people: Person[];
-declare const employees: Employee[];
-declare const dataItems: EmployedPerson[];
+declare let typeTest: never;
 declare function isPerson(testObj: any): testObj is Person;
 declare function writePerson(per: Person): void;
 declare function writeEmployee(emp: Employee): void;
