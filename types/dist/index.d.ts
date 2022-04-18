@@ -14,6 +14,7 @@ declare type Person = {
     contact: {
         phone: number;
     };
+    getContact(field: string): string;
 };
 declare type Employee = {
     id: string;
@@ -22,15 +23,10 @@ declare type Employee = {
     contact: {
         name: string;
     };
+    getContact(field: number): number;
 };
 declare type EmployedPerson = Person & Employee;
-declare let typeTest: {
-    phone: number;
-} & {
-    name: string;
-};
-declare const person1: EmployedPerson;
-declare const person2: EmployedPerson;
-declare function isPerson(testObj: any): testObj is Person;
-declare function writePerson(per: Person): void;
-declare function writeEmployee(emp: Employee): void;
+declare const person: EmployedPerson;
+declare const typeTest: ((field: string) => string) & ((field: number) => number);
+declare const stringParamTypeTest: string;
+declare const numberParamTypeTest: number;
