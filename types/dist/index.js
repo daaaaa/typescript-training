@@ -62,3 +62,8 @@ const first = getMixedValue(1);
 const second = getMixedValue(2);
 const third = getMixedValue(3);
 console.log(first, second, third);
+function getCityString(city) {
+    return `City: ${city}`;
+}
+let stringCity = getCityString("London");
+console.log(stringCity);
