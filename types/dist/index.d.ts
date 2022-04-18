@@ -23,3 +23,5 @@ declare const people: Person[];
 declare const employees: Employee[];
 declare const dataItems: EmployedPerson[];
 declare function isPerson(testObj: any): testObj is Person;
+declare function writePerson(per: Person): void;
+declare function writeEmployee(emp: Employee): void;
