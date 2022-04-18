@@ -4,9 +4,7 @@ function calculateTax(amount) {
 function writePrice(product, price) {
     console.log(`Price for ${product}: $${price.toFixed(2)}`);
 }
-const prices = [];
-prices.push(...[100, 75, 42, "20"]);
-const names = ["Hat", "Gloves", "Umbrella", "Sunglasses"];
-prices.forEach((price, index) => {
-    writePrice(names[index], calculateTax(price));
-});
+const hat = ["Hat", 100];
+const gloves = ["Gloves", 75];
+writePrice(hat[0], calculateTax(hat[1]));
+writePrice(gloves[0], calculateTax(gloves[1]));
