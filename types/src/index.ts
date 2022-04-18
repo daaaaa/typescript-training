@@ -12,9 +12,15 @@ enum Product { Hat, Gloves = 20, Umbrella }
     console.log(`Enum value: ${productEnum}`)
 })
 
-const productValue: Product = 22
-const productName: string = Product[productValue]
-console.log(`Value: ${productValue}, Name: ${productName}`)
+const productValue: Product = Product.Hat
+if (typeof productValue === "number") {
+    console.log("productValue is a number")
+}
+
+const unionValue: number | Product = Product.Hat
+if (typeof unionValue === "number") {
+    console.log("unionValue is a number")
+}
 
 enum City {
     London = "London",

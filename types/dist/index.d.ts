@@ -6,7 +6,7 @@ declare enum Product {
     Umbrella = 21
 }
 declare const productValue: Product;
-declare const productName: string;
+declare const unionValue: number | Product;
 declare enum City {
     London = "London",
     Paris = "Paris",

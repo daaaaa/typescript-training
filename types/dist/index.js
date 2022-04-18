@@ -13,9 +13,14 @@ var Product;
 [Product.Hat, Product.Gloves, Product.Umbrella].forEach((productEnum) => {
     console.log(`Enum value: ${productEnum}`);
 });
-const productValue = 22;
-const productName = Product[productValue];
-console.log(`Value: ${productValue}, Name: ${productName}`);
+const productValue = Product.Hat;
+if (typeof productValue === "number") {
+    console.log("productValue is a number");
+}
+const unionValue = Product.Hat;
+if (typeof unionValue === "number") {
+    console.log("unionValue is a number");
+}
 var City;
 (function (City) {
     City["London"] = "London";
