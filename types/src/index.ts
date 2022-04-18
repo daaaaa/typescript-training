@@ -8,22 +8,8 @@ function writePrice(product: string, price: number): void {
 
 enum Product { Hat, Gloves, Umbrella }
 
-let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]]
+// let products: [Product, number][] = [[Product.Hat, 100], [Product.Gloves, 75]]
 
-products.forEach((tuple) => {
-    let [productType, price] = tuple
-
-    switch (productType) {
-        case Product.Hat:
-            writePrice("Hat", calculateTax(price))
-            break;
-    
-        case Product.Gloves:
-            writePrice("Gloves", calculateTax(price))
-            break;
-        
-        case Product.Umbrella:
-            writePrice("Umbrella", calculateTax(price))
-            break;
-    }
+[Product.Hat, Product.Gloves, Product.Umbrella].forEach((productEnum) => {
+    console.log(`Enum value: ${productEnum}`)
 })
