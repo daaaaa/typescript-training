@@ -13,7 +13,7 @@ var Product;
 [Product.Hat, Product.Gloves, Product.Umbrella].forEach((productEnum) => {
     console.log(`Enum value: ${productEnum}`);
 });
-const productValue = 0;
+const productValue = 22;
 const productName = Product[productValue];
 console.log(`Value: ${productValue}, Name: ${productName}`);
 var City;

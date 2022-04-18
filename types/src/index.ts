@@ -12,7 +12,7 @@ enum Product { Hat, Gloves = 20, Umbrella }
     console.log(`Enum value: ${productEnum}`)
 })
 
-const productValue: Product = 0
+const productValue: Product = 22
 const productName: string = Product[productValue]
 console.log(`Value: ${productValue}, Name: ${productName}`)
 
