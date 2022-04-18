@@ -38,4 +38,11 @@ console.log(`Color value: ${Colors.Red}`)
 const restrictedValue: 1 | 2 | 3 = 3
 console.log(`Restricted value: ${restrictedValue}`)
 
-const restrictedValueNotAllowed: 1 | 2 | 3 = 100
+// const restrictedValueNotAllowed: 1 | 2 | 3 = 100
+
+function calculatePrice(quantity: 1 | 2, price: number): number {
+    return quantity * price
+}
+
+const total = calculatePrice(2, 19.99)
+console.log(`Price: ${total}`)
