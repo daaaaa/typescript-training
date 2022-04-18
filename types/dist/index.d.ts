@@ -13,15 +13,13 @@ declare type Person = {
     city: string;
 };
 declare type Employee = {
-    company: string;
-    dept: string;
-};
-declare const bob: {
     id: string;
-    name: string;
-    city: string;
     company: string;
     dept: string;
 };
-declare const dataItems: (Person & Employee)[];
+declare type EmployedPerson = Person & Employee;
+declare function correlateData(peopleData: Person[], staff: Employee[]): EmployedPerson[];
+declare const people: Person[];
+declare const employees: Employee[];
+declare const dataItems: EmployedPerson[];
 declare function isPerson(testObj: any): testObj is Person;

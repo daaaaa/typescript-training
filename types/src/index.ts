@@ -13,19 +13,33 @@ type Person = {
 }
 
 type Employee = {
+    id: string,
     company: string,
     dept: string,
 }
 
-const bob = {
-    id: "bsmith",
-    name: "Umbrella",
-    city: "London",
-    company: "Acme Co",
-    dept: "Sales",
+type EmployedPerson = Person & Employee
+
+function correlateData(peopleData: Person[], staff: Employee[]): EmployedPerson[] {
+    const defaults = { company: "None", dept: "None" }
+    return peopleData.map(p => ({
+        ...p,
+        ...staff.find(e => e.id === p.id) || { ...defaults, id: p.id }
+    }))
 }
 
-const dataItems: (Person & Employee)[] = [bob]
+const people: Person[] = [
+    { id: "bsmith", name: "Bob Smith", city: "London" },
+    { id: "ajones", name: "Alice Jones", city: "Paris" },
+    { id: "dpeters", name: "Dora Peters", city: "Nwe York" },
+]
+
+const employees: Employee[] = [
+    { id: "bsmith", company: "Acme Co", dept: "Sales" },
+    { id: "dpeters", company: "Acme Co", dept: "Development" },
+]
+
+const dataItems: EmployedPerson[] = correlateData(people, employees)
 
 function isPerson(testObj: any): testObj is Person {
     return testObj.city !== undefined
