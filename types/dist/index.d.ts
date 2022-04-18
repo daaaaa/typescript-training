@@ -21,5 +21,9 @@ declare const enum Colors {
 declare const restrictedValue: 1 | 2 | 3;
 declare function calculatePrice(quantity: 1 | 2, price: number): number;
 declare const total: number;
-declare function getRandomValue(): 1 | 2 | 3 | 4;
-declare function getMixedValue(): 1 | "Hello" | true | City.London;
+declare function getMixedValue(input: 1): 1;
+declare function getMixedValue(input: 2 | 3): "Hello" | true;
+declare function getMixedValue(input: 4): City.London;
+declare const first: 1;
+declare const second: true | "Hello";
+declare const third: true | "Hello";

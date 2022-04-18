@@ -47,12 +47,11 @@ function calculatePrice(quantity: 1 | 2, price: number): number {
 const total = calculatePrice(2, 19.99)
 console.log(`Price: ${total}`)
 
-function getRandomValue(): 1 | 2 | 3 | 4 {
-    return Math.floor(Math.random() * 4) + 1 as 1 | 2 | 3 | 4
-}
-
-function getMixedValue(): 1 | "Hello" | true | City.London {
-    switch (getRandomValue()) {
+function getMixedValue(input: 1): 1
+function getMixedValue(input: 2 | 3): "Hello" | true
+function getMixedValue(input: 4): City.London
+function getMixedValue(input: number): 1 | "Hello" | true | City.London {
+    switch (input) {
         case 1:
             return 1
             break;
@@ -65,7 +64,12 @@ function getMixedValue(): 1 | "Hello" | true | City.London {
         case 4:
             return City.London
             break;
+        default:
+            return City.London
     }
 }
 
-console.log(`Random value: ${getMixedValue()}`)
+const first = getMixedValue(1)
+const second = getMixedValue(2)
+const third = getMixedValue(3)
+console.log(first, second, third)
