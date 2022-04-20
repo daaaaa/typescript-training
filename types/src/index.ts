@@ -1,45 +1,33 @@
-const enum Feature { Waterproof, Insulated }
-
-type Product = {
-    id: number,
-    name: string,
-    price?: number,
-}
-
 type Person = {
     id: string,
     name: string,
-    city: string,
-    contact: { phone: number },
-    getContact(field: string): string,
+    city: string
 }
 
-type Employee = {
-    id: string,
-    company: string,
-    dept: string,
-    contact: { name: string },
-    getContact(field: number): number,
+let Employee = function(id: string, name: string, dept: string, city: string) {
+    this.id = id
+    this.name = name
+    this.dept = dept
+    this.city = city
 }
 
-type EmployedPerson = Person & Employee
+Employee.prototype.writeDept = function() {
+    console.log(`${this.name} works in ${this.dept}`)
+}
 
-const person: EmployedPerson = {
-    id: "bsmith",
-    name: "Bob Smith",
-    city: "London",
-    company: "Acme Co",
-    dept: "Sales",
-    contact: { name: "Alice", phone: 123123123 },
-    getContact(field: string | number): any {
-        return typeof field === "string" ? "Alice" : 6512346543
+let salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris")
+
+let data: (Person | Employee)[] = [
+    { id: "bsmith", name: "Bob Smith", city: "London" },
+    { id: "ajones", name: "Alice Jones", city: "Paris"},
+    { id: "dpeters", name: "Dora Peters", city: "New York"},
+    salesEmployee,
+]
+
+data.forEach(item => {
+    if (item instanceof Employee) {
+        item.writeDept()
+    } else {
+        console.log(`${item.id} ${item.name}, ${item.city}`)
     }
-}
-
-const typeTest = person.getContact
-const stringParamTypeTest = person.getContact("Alice")
-const numberParamTypeTest = person.getContact(123)
-
-
-console.log(`Contact: ${person.getContact("Alice")}`)
-console.log(`Contact: ${person.getContact(123)}`)
+})
