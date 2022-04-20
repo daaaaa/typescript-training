@@ -27,4 +27,4 @@ declare class Supplier extends Person {
     constructor(id: string, name: string, city: string, CompanyName: string);
 }
 declare const salesEmployee: Employee;
-declare const data: (Employee | Customer)[];
+declare const data: Person[];

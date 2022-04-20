@@ -45,7 +45,7 @@ const salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris")
 salesEmployee.writeDept()
 // salesEmployee.id = "fidel"
 
-const data = [
+const data: Person[] = [
     salesEmployee,
     new Customer("ajones", "Alice Jones", "London", 500),,
 ]
