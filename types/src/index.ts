@@ -1,60 +1,54 @@
-abstract class Person {
-    constructor(
-        public id: string,
-        public name: string,
-        public city: string
-    ) {}
-
-    getDetails(): string {
-        return `${this.name}, ${this.getSpecificDetails()}`
-    }
-
-    abstract getSpecificDetails(): string
+interface Person {
+    name: string
+    getDetails(): string
 }
 
-class Employee extends Person {
+interface DogOwner {
+    dogName: string
+    getDogDetails(): string
+}
+
+class Employee implements Person {
     constructor(
         public readonly id: string,
         public name: string,
         private dept: string,
         public city: string) {
-            super(id, name, city)
         }
 
-    writeDept() {
-        console.log(`${this.name} works in ${this.dept}`)
-    }
-
-    getSpecificDetails(): string  {
-        return `works in ${this.dept}`
+    getDetails(): string  {
+        return `${this.name} works in ${this.dept}`
     }
 }
 
-class Customer {
+class Customer implements Person, DogOwner {
     constructor(
         public readonly id: string,
         public name: string,
         public city: string,
-        public creditLimit: number) {}
+        public creditLimit: number,
+        public dogName,
+    ) {}
     
-    getSpecificDetails(): string  {
-        return `has ${this.creditLimit} limit`
+    getDetails(): string {
+        return `${this.name} has ${this.creditLimit} limit`
+    }
+
+    getDogDetails(): string {
+        return `${this.name} has a dog named ${this.dogName}`
     }
 }
 
-const salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris")
-salesEmployee.writeDept()
-// salesEmployee.id = "fidel"
+const alice = new Customer("ajones", "Alice Jones", "London", 500, "Fido")
+const dogOwners: DogOwner[] = [alice]
 
-const data: (Person | Customer)[] = [
-    salesEmployee,
-    new Customer("ajones", "Alice Jones", "London", 500),,
+dogOwners.forEach(item => console.log(item.getDogDetails()))
+
+const data: Person[] = [
+    new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
+    alice,
 ]
 
 data.forEach(item => {
-    if (item instanceof Person) {
-        console.log(item.getDetails())
-    } else {
-        console.log(`Customer: ${item.name}`)
-    }
+    console.log(item.getDetails())
 })

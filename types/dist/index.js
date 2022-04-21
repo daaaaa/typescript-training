@@ -1,60 +1,36 @@
-class Person {
-    constructor(id, name, city) {
-        this.id = id;
-        this.name = name;
-        this.city = city;
-    }
-    getDetails() {
-        return `${this.name}, ${this.getSpecificDetails()}`;
-    }
-}
-class Employee extends Person {
+class Employee {
     constructor(id, name, dept, city) {
-        super(id, name, city);
         this.id = id;
         this.name = name;
         this.dept = dept;
         this.city = city;
     }
-    writeDept() {
-        console.log(`${this.name} works in ${this.dept}`);
-    }
-    getSpecificDetails() {
-        return `works in ${this.dept}`;
+    getDetails() {
+        return `${this.name} works in ${this.dept}`;
     }
 }
-class Customer extends Person {
-    constructor(id, name, city, creditLimit) {
-        super(id, name, city);
+class Customer {
+    constructor(id, name, city, creditLimit, dogName) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.creditLimit = creditLimit;
+        this.dogName = dogName;
     }
-    getSpecificDetails() {
-        return `has ${this.creditLimit} limit`;
+    getDetails() {
+        return `${this.name} has ${this.creditLimit} limit`;
     }
-}
-class Supplier extends Person {
-    constructor(id, name, city, CompanyName) {
-        super(id, name, city);
-        this.id = id;
-        this.name = name;
-        this.city = city;
-        this.CompanyName = CompanyName;
-    }
-    getSpecificDetails() {
-        return `works in ${this.CompanyName}`;
+    getDogDetails() {
+        return `${this.name} has a dog named ${this.dogName}`;
     }
 }
-const salesEmployee = new Employee("fvega", "Fidel Vega", "Sales", "Paris");
-salesEmployee.writeDept();
-// salesEmployee.id = "fidel"
+const alice = new Customer("ajones", "Alice Jones", "London", 500, "Fido");
+const dogOwners = [alice];
+dogOwners.forEach(item => console.log(item.getDogDetails()));
 const data = [
-    salesEmployee,
-    new Customer("ajones", "Alice Jones", "London", 500), ,
+    new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
+    alice,
 ];
-data.push(new Supplier("dpeters", "Dora Peters", "New York", "Acme"));
 data.forEach(item => {
     console.log(item.getDetails());
 });

@@ -1,35 +1,29 @@
-declare abstract class Person {
-    id: string;
+interface Person {
     name: string;
-    city: string;
-    constructor(id: string, name: string, city: string);
     getDetails(): string;
-    abstract getSpecificDetails(): string;
 }
-declare class Employee extends Person {
+interface DogOwner {
+    dogName: string;
+    getDogDetails(): string;
+}
+declare class Employee implements Person {
     readonly id: string;
     name: string;
     private dept;
     city: string;
     constructor(id: string, name: string, dept: string, city: string);
-    writeDept(): void;
-    getSpecificDetails(): string;
+    getDetails(): string;
 }
-declare class Customer extends Person {
+declare class Customer implements Person, DogOwner {
     readonly id: string;
     name: string;
     city: string;
     creditLimit: number;
-    constructor(id: string, name: string, city: string, creditLimit: number);
-    getSpecificDetails(): string;
+    dogName: any;
+    constructor(id: string, name: string, city: string, creditLimit: number, dogName: any);
+    getDetails(): string;
+    getDogDetails(): string;
 }
-declare class Supplier extends Person {
-    readonly id: string;
-    name: string;
-    city: string;
-    CompanyName: string;
-    constructor(id: string, name: string, city: string, CompanyName: string);
-    getSpecificDetails(): string;
-}
-declare const salesEmployee: Employee;
+declare const alice: Customer;
+declare const dogOwners: DogOwner[];
 declare const data: Person[];
