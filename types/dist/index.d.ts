@@ -1,8 +1,10 @@
 interface Person {
     name: string;
     getDetails(): string;
+    dogName?: string;
+    getDogDetails?(): string;
 }
-interface DogOwner {
+interface DogOwner extends Person {
     dogName: string;
     getDogDetails(): string;
 }
@@ -14,7 +16,7 @@ declare class Employee implements Person {
     constructor(id: string, name: string, dept: string, city: string);
     getDetails(): string;
 }
-declare class Customer implements Person, DogOwner {
+declare class Customer implements Person {
     readonly id: string;
     name: string;
     city: string;
@@ -25,5 +27,4 @@ declare class Customer implements Person, DogOwner {
     getDogDetails(): string;
 }
 declare const alice: Customer;
-declare const dogOwners: DogOwner[];
 declare const data: Person[];
