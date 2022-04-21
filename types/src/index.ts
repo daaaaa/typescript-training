@@ -1,70 +1,42 @@
 interface Person {
     name: string
     getDetails(): string
-
-    dogName?: string
-    getDogDetails?(): string
 }
 
-abstract class AbstractDogOwner implements Person {
-    abstract name: string
-    abstract dogName?: string
-    
-    abstract getDetails(): string
-
-    getDogDetails(): string {
-        if (this.dogName) {
-            return `${this.name} has a dog called ${this.dogName}`
-        }
-    }
+interface Product {
+    name: string,
+    price: number
 }
 
 class Employee implements Person {
     constructor(
-        public readonly id: string,
         public name: string,
-        private dept: string,
-        public city: string) {
-        }
+        public company: string,
+    ) {}
 
     getDetails(): string  {
-        return `${this.name} works in ${this.dept}`
+        return `${this.name} works in ${this.company}`
     }
 }
 
-class DogOwningCustomer extends AbstractDogOwner {
+class SportProduct implements Product {
     constructor(
-        public readonly id: string,
         public name: string,
-        public city: string,
-        public creditLimit: number,
-        public dogName,
-    ) {
-        super()
-    }
-    
-    getDetails(): string {
-        return `${this.name} has ${this.creditLimit} limit`
-    }
-
-    getDogDetails(): string {
-        return `${this.name} has a dog named ${this.dogName}`
-    }
+        public category: string,
+        public price: number,
+    ) {}
 }
 
-const alice = new DogOwningCustomer("ajones", "Alice Jones", "London", 500, "Fido")
-// const dogOwners: DogOwner[] = [alice]
-
-// dogOwners.forEach(item => console.log(item.getDogDetails()))
-
-const data: Person[] = [
-    new Employee("fvega", "Fidel Vega", "Sales", "Paris"),
-    alice,
+const data: (Person | Product)[] = [
+    new Employee("Bob Smith", "Acme"),
+    new SportProduct("Running Shoes", "Running", 90.50),
+    new Employee("Dora Peters", "BigCo"),
 ]
 
 data.forEach(item => {
-    console.log(item.getDetails())
-    if (item.getDogDetails) {
-        console.log(item.getDogDetails())
+    if ("getDetails" in item) {
+        console.log(`Person: ${item.getDetails()}`)
+    } else {
+        console.log(`Product: ${item.name}, ${item.price}`)
     }
 })
