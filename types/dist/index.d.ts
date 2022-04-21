@@ -23,3 +23,4 @@ declare class ProductGroup {
     [properryName: string]: Product;
 }
 declare let group: ProductGroup;
+declare let total: number;

@@ -21,4 +21,5 @@ class ProductGroup {
 }
 let group = new ProductGroup(["shows", new SportProduct("Shows", "Running", 90.50)]);
 group.hat = new SportProduct("Hat", "Skiing", 20);
-Object.keys(group).forEach(k => console.log(`Property Name: ${k}`));
+let total = group.hat.price + group.boots.price;
+console.log(`Total: ${total}`);
