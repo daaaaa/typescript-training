@@ -6,9 +6,17 @@ interface Person {
     getDogDetails?(): string
 }
 
-interface DogOwner extends Person {
-    dogName: string
-    getDogDetails(): string
+abstract class AbstractDogOwner implements Person {
+    abstract name: string
+    abstract dogName?: string
+    
+    abstract getDetails(): string
+
+    getDogDetails(): string {
+        if (this.dogName) {
+            return `${this.name} has a dog called ${this.dogName}`
+        }
+    }
 }
 
 class Employee implements Person {
@@ -24,14 +32,16 @@ class Employee implements Person {
     }
 }
 
-class Customer implements Person {
+class DogOwningCustomer extends AbstractDogOwner {
     constructor(
         public readonly id: string,
         public name: string,
         public city: string,
         public creditLimit: number,
         public dogName,
-    ) {}
+    ) {
+        super()
+    }
     
     getDetails(): string {
         return `${this.name} has ${this.creditLimit} limit`
@@ -42,7 +52,7 @@ class Customer implements Person {
     }
 }
 
-const alice = new Customer("ajones", "Alice Jones", "London", 500, "Fido")
+const alice = new DogOwningCustomer("ajones", "Alice Jones", "London", 500, "Fido")
 // const dogOwners: DogOwner[] = [alice]
 
 // dogOwners.forEach(item => console.log(item.getDogDetails()))

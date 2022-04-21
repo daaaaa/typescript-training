@@ -4,8 +4,10 @@ interface Person {
     dogName?: string;
     getDogDetails?(): string;
 }
-interface DogOwner extends Person {
-    dogName: string;
+declare abstract class AbstractDogOwner implements Person {
+    abstract name: string;
+    abstract dogName?: string;
+    abstract getDetails(): string;
     getDogDetails(): string;
 }
 declare class Employee implements Person {
@@ -16,7 +18,7 @@ declare class Employee implements Person {
     constructor(id: string, name: string, dept: string, city: string);
     getDetails(): string;
 }
-declare class Customer implements Person {
+declare class DogOwningCustomer extends AbstractDogOwner {
     readonly id: string;
     name: string;
     city: string;
@@ -26,5 +28,5 @@ declare class Customer implements Person {
     getDetails(): string;
     getDogDetails(): string;
 }
-declare const alice: Customer;
+declare const alice: DogOwningCustomer;
 declare const data: Person[];
