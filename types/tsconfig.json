@@ -6,7 +6,8 @@
         "declaration": true,
         // "noImplicitAny": true,
         // "noImplicitReturns": true,
-        // "strictNullChecks": true,
-        // "suppressExcessPropertyErrors": true
+        "strictNullChecks": true,
+        // "suppressExcessPropertyErrors": true,
+        "noUncheckedIndexedAccess": true
     }
 }

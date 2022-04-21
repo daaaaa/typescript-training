@@ -1,4 +1,6 @@
 class Employee {
+    name;
+    company;
     constructor(name, company) {
         this.name = name;
         this.company = company;
@@ -8,6 +10,9 @@ class Employee {
     }
 }
 class SportProduct {
+    name;
+    category;
+    price;
     constructor(name, category, price) {
         this.name = name;
         this.category = category;
