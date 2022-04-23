@@ -23,7 +23,7 @@ const employees = [
 // type dataType = Person | Product
 
 class DataCollection<T extends { name: string }> {
-    private items: T[] = []
+    protected items: T[] = []
 
     constructor(initialItems: T[]) {
         this.items.push(...initialItems)
@@ -41,9 +41,18 @@ class DataCollection<T extends { name: string }> {
     }
 }
 
-const peopleData = new DataCollection(people)
-const collatedData = peopleData.collate(cities, "city", "name")
-collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`))
+class SearchableCollection<T extends { name: string}> extends DataCollection<T> {
+    constructor(initialItems: T[]) {
+        super(initialItems)
+    }
 
-const empData = peopleData.collate(employees, "name", "name")
-empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`))
+    find(name: string): T | undefined {
+        return this.items.find(item => item.name === name)
+    }
+}
+
+const peopleData = new SearchableCollection<Person>(people)
+const foundPerson = peopleData.find("Bob Smith")
+if (foundPerson !== undefined) {
+    console.log(`Person ${foundPerson.name}, ${foundPerson.city}`)
+}
