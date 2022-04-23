@@ -1,42 +1,37 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const dataTypes_1 = require("./dataTypes");
-function getValue(item, keyname) {
-    return item[keyname];
-}
-const p = new dataTypes_1.Product("Running Shoes", 100);
-getValue(p, "price");
-getValue(p, "price");
-console.log(getValue(p, "name"));
-console.log(getValue(p, "price"));
-const e = new dataTypes_1.Employee("Bob Smith", "Sales");
-getValue(e, "name");
-getValue(e, "role");
-console.log(getValue(e, "name"));
-console.log(getValue(e, "role"));
-const products = [
-    p,
-    new dataTypes_1.Product("Hat", 25),
-];
-class Collection {
-    constructor(initialItems = []) {
-        this.initialItems = initialItems;
-        this.items = new Map();
-        this.add(...initialItems);
-    }
-    add(...newItems) {
-        newItems.forEach(newItem => this.items.set(newItem.name, newItem));
-    }
-    get(name) {
-        return this.items.get(name);
-    }
-    get count() {
-        return this.items.size;
-    }
-    [Symbol.iterator]() {
-        return this.items.values();
-    }
-}
-const productCollection = new Collection(products);
-console.log(`There are ${productCollection.count} products`);
-[...productCollection].forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
+const p = { name: "Kayak", price: 275 };
+console.log(`Mapped type: ${p.name}, ${p.price}`);
+// const e = new Employee("Bob Smith", "Sales")
+// const products = [
+//     p,
+//     new Product("Hat", 25),
+// ]
+// type shapeType = { name: string }
+// class Collection<T, K extends keyof T> implements Iterable<T> {
+//     private items: Map<T[K], T>
+//     constructor(private initialItems: T[] = [], private propertyName: K) {
+//         this.items = new Map<T[K], T>()
+//         this.add(...initialItems)
+//     }
+//     add(...newItems: T[]): void {
+//         newItems.forEach(newItem => this.items.set(newItem[this.propertyName], newItem))
+//     }
+//     get(key: T[K]): T {
+//         return this.items.get(key)
+//     }
+//     get count(): number {
+//         return this.items.size
+//     }
+//     [Symbol.iterator](): Iterator<T> {
+//         return this.items.values()
+//     }
+// }
+// const productCollection: Collection<Product, "name"> = new Collection(products, "name")
+// console.log(`There are ${ productCollection.count } products`)
+// const itemByKey = productCollection.get("Hat")
+// console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`)
+// const productCollectionByPrice: Collection<Product, "price"> = new Collection(products, "price")
+// console.log(`There are ${ productCollectionByPrice.count } products`)
+// const itemByKeyPrice = productCollectionByPrice.get(100)
+// console.log(`Item: ${itemByKey.name}, ${itemByKey.price}`)
