@@ -20,8 +20,15 @@ class Collection {
     get count() {
         return this.items.size;
     }
+    values() {
+        return this.items.values();
+    }
 }
 const productCollection = new Collection(products);
 console.log(`There are ${productCollection.count} products`);
-const p = productCollection.get("Hat");
-console.log(`Product: ${p.name}, ${p.price}`);
+const iterator = productCollection.values();
+let result = iterator.next();
+while (!result.done) {
+    console.log(`Product: ${result.value.name}, ${result.value.price}`);
+    result = iterator.next();
+}

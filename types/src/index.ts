@@ -26,9 +26,17 @@ class Collection<T extends shapeType> {
     get count(): number {
         return this.items.size
     }
+
+    values(): Iterator<T> {
+        return this.items.values()
+    }
 }
 const productCollection: Collection<Product> = new Collection(products)
 console.log(`There are ${ productCollection.count } products`)
 
-const p = productCollection.get("Hat")
-console.log(`Product: ${ p.name }, ${ p.price }`)
+const iterator: Iterator<Product> = productCollection.values()
+let result: IteratorResult<Product> = iterator.next()
+while(!result.done) {
+    console.log(`Product: ${result.value.name}, ${result.value.price}`)
+    result = iterator.next()
+}
