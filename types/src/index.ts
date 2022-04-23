@@ -17,38 +17,26 @@ const cities = [
 
 // type dataType = Person | Product
 
-class DataCollection<T extends { name: string }> {
+class DataCollection<T extends { name: string }, U> {
     private items: T[] = []
 
     constructor(initialItems: T[]) {
         this.items.push(...initialItems)
     }
 
-    add(newItem: T) {
-        this.items.push(newItem)
-    }
-
-    getNames(): string[] {
-        return this.items.map(item => item.name)
-    }
-
-    getItem(index: number): T {
-        return this.items[index]
+    collate(targetData: U[], itemProp: string, targetProp: string): (T & U)[] {
+        const result = []
+        this.items.forEach(item => {
+            const match = targetData.find(d => d[targetProp] === item[itemProp])
+            if (match !== undefined) {
+                result.push({ ...match, ...item })
+            }
+        })
+        return result
     }
 }
 
-const peopleData = new DataCollection<Person>(people)
-const firstPerson = peopleData.getItem(0)
-console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`)
-console.log(`Person Names: ${peopleData.getNames().join(", ")}`)
+const peopleData = new DataCollection<Person, City>(people)
+const collatedData = peopleData.collate(cities, "city", "name")
 
-
-const productData = new DataCollection<Product>(products)
-const firstProduct = productData.getItem(0)
-console.log(`First Product: ${firstProduct.name}, ${firstProduct.price}`)
-console.log(`Product Names: ${productData.getNames().join(", ")}`)
-
-const cityData = new DataCollection<City>(cities)
-console.log(`Citiy Names: ${cityData.getNames().join(", ")}`)
-
-
+collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`))

@@ -19,23 +19,17 @@ class DataCollection {
         this.items = [];
         this.items.push(...initialItems);
     }
-    add(newItem) {
-        this.items.push(newItem);
-    }
-    getNames() {
-        return this.items.map(item => item.name);
-    }
-    getItem(index) {
-        return this.items[index];
+    collate(targetData, itemProp, targetProp) {
+        const result = [];
+        this.items.forEach(item => {
+            const match = targetData.find(d => d[targetProp] === item[itemProp]);
+            if (match !== undefined) {
+                result.push({ ...match, ...item });
+            }
+        });
+        return result;
     }
 }
 const peopleData = new DataCollection(people);
-const firstPerson = peopleData.getItem(0);
-console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`);
-console.log(`Person Names: ${peopleData.getNames().join(", ")}`);
-const productData = new DataCollection(products);
-const firstProduct = productData.getItem(0);
-console.log(`First Product: ${firstProduct.name}, ${firstProduct.price}`);
-console.log(`Product Names: ${productData.getNames().join(", ")}`);
-const cityData = new DataCollection(cities);
-console.log(`Citiy Names: ${cityData.getNames().join(", ")}`);
+const collatedData = peopleData.collate(cities, "city", "name");
+collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
