@@ -10,32 +10,32 @@ const products = [
     new Product("Hat", 25)
 ];
 
-type dataType = Person | Product
+// type dataType = Person | Product
 
-class DataCollection {
-    private items: dataType[] = []
+class DataCollection<T> {
+    private items: T[] = []
 
-    constructor(initialItems: dataType[]) {
+    constructor(initialItems: T[]) {
         this.items.push(...initialItems)
     }
 
-    add(newItem: dataType) {
+    add(newItem: T) {
         this.items.push(newItem)
     }
 
-    getNames(): string[] {
-        return this.items.map(item => item.name)
-    }
+    // getNames(): string[] {
+    //     return this.items.map(item => item.name)
+    // }
 
-    getItem(index: number): dataType {
+    getItem(index: number): T {
         return this.items[index]
     }
 }
 
-const peopleData = new DataCollection(people)
+const peopleData = new DataCollection<Person>(people)
 
-console.log(`Names: ${peopleData.getNames().join(", ")}`)
+// console.log(`Names: ${peopleData.getNames().join(", ")}`)
 const firstPerson = peopleData.getItem(0)
-if (firstPerson instanceof Person) {
+// if (firstPerson instanceof Person) {
     console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`)
-}
+// }
