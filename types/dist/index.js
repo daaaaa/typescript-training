@@ -23,10 +23,18 @@ class DataCollection {
         this.items = [];
         this.items.push(...initialItems);
     }
-    filter() {
-        return this.items.filter(item => item instanceof V);
+    filter(predicate) {
+        return this.items.filter(item => predicate(item));
+    }
+    static reverse(items) {
+        return items.reverse();
     }
 }
 const mixedData = new DataCollection([...people, ...products]);
-const filteredProducts = mixedData.filter();
+function isProduct(target) {
+    return target instanceof dataTypes_1.Product;
+}
+const filteredProducts = mixedData.filter(isProduct);
 filteredProducts.forEach(e => console.log(`Product ${e.name}, ${e.price}`));
+const reversedCities = DataCollection.reverse(cities);
+reversedCities.forEach(e => console.log(`City ${e.name}, ${e.population}`));
