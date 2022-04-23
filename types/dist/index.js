@@ -17,24 +17,20 @@ const employees = [
     new dataTypes_1.Employee("Bob Smith", "Sales"),
     new dataTypes_1.Employee("Alice Jones", "Sales"),
 ];
-// type dataType = Person | Product
-class DataCollection {
-    constructor(initialItems) {
+class PersonCollection {
+    constructor() {
         this.items = [];
-        this.items.push(...initialItems);
     }
-    filter(predicate) {
-        return this.items.filter(item => predicate(item));
+    add(...newItems) {
+        this.items.push(...newItems);
     }
-    static reverse(items) {
-        return items.reverse();
+    get(name) {
+        return this.items.find(item => item.name === name);
+    }
+    get count() {
+        return this.items.length;
     }
 }
-const mixedData = new DataCollection([...people, ...products]);
-function isProduct(target) {
-    return target instanceof dataTypes_1.Product;
-}
-const filteredProducts = mixedData.filter(isProduct);
-filteredProducts.forEach(e => console.log(`Product ${e.name}, ${e.price}`));
-const reversedCities = DataCollection.reverse(cities);
-reversedCities.forEach(e => console.log(`City ${e.name}, ${e.population}`));
+const peopleCollection = new PersonCollection();
+peopleCollection.add(new dataTypes_1.Person("Bob Smith", "London"), new dataTypes_1.Person("Dora Peters", "New York"));
+console.log(`Collection size: ${peopleCollection.count}`);
