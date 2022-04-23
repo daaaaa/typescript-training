@@ -9,6 +9,10 @@ const products = [
     new dataTypes_1.Product("Running Shoes", 100),
     new dataTypes_1.Product("Hat", 25)
 ];
+const cities = [
+    new dataTypes_1.City("London", 8136000),
+    new dataTypes_1.City("Paris", 2141000),
+];
 // type dataType = Person | Product
 class DataCollection {
     constructor(initialItems) {
@@ -33,3 +37,5 @@ const productData = new DataCollection(products);
 const firstProduct = productData.getItem(0);
 console.log(`First Product: ${firstProduct.name}, ${firstProduct.price}`);
 console.log(`Product Names: ${productData.getNames().join(", ")}`);
+const cityData = new DataCollection(cities);
+console.log(`Citiy Names: ${cityData.getNames().join(", ")}`);

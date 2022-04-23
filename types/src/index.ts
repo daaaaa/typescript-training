@@ -1,4 +1,4 @@
-import { Person, Product } from "./dataTypes"
+import { City, Person, Product } from "./dataTypes"
 
 const people = [
     new Person("Bob Smith", "London"),
@@ -8,11 +8,16 @@ const people = [
 const products = [
     new Product("Running Shoes", 100),
     new Product("Hat", 25)
-];
+]
+
+const cities = [
+    new City("London", 8136000),
+    new City("Paris", 2141000),
+]
 
 // type dataType = Person | Product
 
-class DataCollection<T extends (Person | Product)> {
+class DataCollection<T extends { name: string }> {
     private items: T[] = []
 
     constructor(initialItems: T[]) {
@@ -43,5 +48,7 @@ const firstProduct = productData.getItem(0)
 console.log(`First Product: ${firstProduct.name}, ${firstProduct.price}`)
 console.log(`Product Names: ${productData.getNames().join(", ")}`)
 
+const cityData = new DataCollection<City>(cities)
+console.log(`Citiy Names: ${cityData.getNames().join(", ")}`)
 
 
