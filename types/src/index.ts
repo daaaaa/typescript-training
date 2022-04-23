@@ -7,6 +7,18 @@ interface Collection<T extends shapeType> {
     count: number
 }
 
+interface SearchableCollection<T extends shapeType> extends Collection<Product> {
+    find(name: string): T | undefined
+}
+
+interface ProductCollection extends Collection<Product> {
+    sumPrices(): number
+}
+
+interface PeopleCollection<T extends Product | Employee> extends Collection<T> {
+    getNames(): string
+}
+
 const people = [
     new Person("Bob Smith", "London"),
     new Person("Dora Peters", "New York"),
