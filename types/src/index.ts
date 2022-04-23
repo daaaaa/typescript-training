@@ -41,9 +41,9 @@ class DataCollection<T extends { name: string }> {
     }
 }
 
-const peopleData = new DataCollection<Person>(people)
-const collatedData = peopleData.collate<City>(cities, "city", "name")
+const peopleData = new DataCollection(people)
+const collatedData = peopleData.collate(cities, "city", "name")
 collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`))
 
-const empData = peopleData.collate<Employee>(employees, "name", "name")
+const empData = peopleData.collate(employees, "name", "name")
 empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`))
