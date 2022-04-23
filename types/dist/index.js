@@ -13,6 +13,10 @@ const cities = [
     new dataTypes_1.City("London", 8136000),
     new dataTypes_1.City("Paris", 2141000),
 ];
+const employees = [
+    new dataTypes_1.Employee("Bob Smith", "Sales"),
+    new dataTypes_1.Employee("Alice Jones", "Sales"),
+];
 // type dataType = Person | Product
 class DataCollection {
     constructor(initialItems) {
@@ -33,3 +37,5 @@ class DataCollection {
 const peopleData = new DataCollection(people);
 const collatedData = peopleData.collate(cities, "city", "name");
 collatedData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.population}`));
+const empData = peopleData.collate(employees, "name", "name");
+empData.forEach(c => console.log(`${c.name}, ${c.city}, ${c.role}`));
