@@ -1,5 +1,9 @@
 import { City, Person, Product, Employee } from "./dataTypes"
 
+let myVar: keyof Product = "name"
+myVar = "price"
+myVar = "someOtherName"
+
 const products = [
     new Product("Running Shoes", 100),
     new Product("Hat", 25),
