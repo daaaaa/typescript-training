@@ -1,46 +1,13 @@
-interface Person {
-    name: string
-    getDetails(): string
-}
+import { Person, Product } from "./dataTypes"
 
-interface Product {
-    name: string,
-    price: number
-}
+const people = [
+    new Person("Bob Smith", "London"),
+    new Person("Dora Peters", "New York"),
+]
 
-class Employee implements Person {
-    constructor(
-        public name: string,
-        public company: string,
-    ) {}
+const products = [
+    new Product("Running Shoes", 100),
+    new Product("Hat", 25)
+];
 
-    getDetails(): string  {
-        return `${this.name} works in ${this.company}`
-    }
-}
-
-class SportProduct implements Product {
-    constructor(
-        public name: string,
-        public category: string,
-        public price: number,
-    ) {}
-}
-
-class ProductGroup {
-    constructor(...initialProducts: [string, Product][]) {
-        initialProducts.forEach(p => this[p[0]] = p[1])
-    }
-
-    [properryName: string]: Product
-}
-
-let group = new ProductGroup(
-    ["shows", new SportProduct("Shows", "Running", 90.50)]
-)
-group.hat = new SportProduct("Hat", "Skiing", 20)
-
-if (group.hat && group.boots) {
-    let total = group.hat.price + group.boots.price
-    console.log(`Total: ${total}`)
-}
+[...people, ...products].forEach(item => console.log(`Item: ${item.name}`))

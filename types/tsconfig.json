@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
-        "target": "esNext",
+        "target": "es2020",
         "outDir": "./dist",
         "rootDir": "./src",
         "declaration": true,
+        "module": "CommonJS",
         // "noImplicitAny": true,
         // "noImplicitReturns": true,
-        "strictNullChecks": true,
+        // "strictNullChecks": true,
         // "suppressExcessPropertyErrors": true,
-        "noUncheckedIndexedAccess": true
+        // "noUncheckedIndexedAccess": true
     }
 }
