@@ -38,12 +38,10 @@ class SearchableCollection extends DataCollection {
     constructor(initialItems) {
         super(initialItems);
     }
-    find(name) {
-        return this.items.find(item => item.name === name);
+    find(searchTerm) {
+        return this.items.filter(item => item.name === searchTerm || item.role === searchTerm);
     }
 }
-const peopleData = new SearchableCollection(people);
-const foundPerson = peopleData.find("Bob Smith");
-if (foundPerson !== undefined) {
-    console.log(`Person ${foundPerson.name}, ${foundPerson.city}`);
-}
+const employeeData = new SearchableCollection(employees);
+const foundEmployees = employeeData.find("Sales");
+foundEmployees.forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
