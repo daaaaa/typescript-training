@@ -10,4 +10,28 @@ const products = [
     new Product("Hat", 25)
 ];
 
-[...people, ...products].forEach(item => console.log(`Item: ${item.name}`))
+class PeopleCollection {
+    private items: Person[] = []
+
+    constructor(initialItems: Person[]) {
+        this.items.push(...initialItems)
+    }
+
+    add(newItem: Person) {
+        this.items.push(newItem)
+    }
+
+    getNames(): string[] {
+        return this.items.map(item => item.name)
+    }
+
+    getItem(index: number): Person {
+        return this.items[index]
+    }
+}
+
+const peopleData = new PeopleCollection(people)
+
+console.log(`Names: ${peopleData.getNames().join(", ")}`)
+const firstPerson = peopleData.getItem(0)
+console.log(`First Person: ${firstPerson.name}, ${firstPerson.city}`)
