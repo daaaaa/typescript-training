@@ -23,25 +23,10 @@ class DataCollection {
         this.items = [];
         this.items.push(...initialItems);
     }
-    collate(targetData, itemProp, targetProp) {
-        const result = [];
-        this.items.forEach(item => {
-            const match = targetData.find(d => d[targetProp] === item[itemProp]);
-            if (match !== undefined) {
-                result.push({ ...match, ...item });
-            }
-        });
-        return result;
+    filter() {
+        return this.items.filter(item => item instanceof V);
     }
 }
-class SearchableCollection extends DataCollection {
-    constructor(initialItems) {
-        super(initialItems);
-    }
-    find(searchTerm) {
-        return this.items.filter(item => item.name === searchTerm || item.role === searchTerm);
-    }
-}
-const employeeData = new SearchableCollection(employees);
-const foundEmployees = employeeData.find("Sales");
-foundEmployees.forEach(e => console.log(`Employee ${e.name}, ${e.role}`));
+const mixedData = new DataCollection([...people, ...products]);
+const filteredProducts = mixedData.filter();
+filteredProducts.forEach(e => console.log(`Product ${e.name}, ${e.price}`));

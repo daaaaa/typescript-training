@@ -22,41 +22,18 @@ const employees = [
 
 // type dataType = Person | Product
 
-class DataCollection<T extends { name: string }> {
+class DataCollection<T> {
     protected items: T[] = []
 
     constructor(initialItems: T[]) {
         this.items.push(...initialItems)
     }
 
-    collate<U>(targetData: U[], itemProp: string, targetProp: string): (T & U)[] {
-        const result = []
-        this.items.forEach(item => {
-            const match = targetData.find(d => d[targetProp] === item[itemProp])
-            if (match !== undefined) {
-                result.push({ ...match, ...item })
-            }
-        })
-        return result
+    filter<V extends T>(): V[] {
+        return this.items.filter(item => item instanceof V) as V[]
     }
 }
 
-class SearchableCollection<T extends Employee | Person> extends DataCollection<T> {
-    constructor(initialItems: T[]) {
-        super(initialItems)
-    }
-
-    find(searchTerm: string): T[] {
-        return this.items.filter(item => {
-            if (item instanceof Employee) {
-                return item.name === searchTerm || item.role === searchTerm
-            } else if (item instanceof Person) {
-                return item.name === searchTerm || item.city === searchTerm
-            }
-        })
-    }
-}
-
-const employeeData = new SearchableCollection<Employee>(employees)
-const foundEmployees = employeeData.find("Sales")
-foundEmployees.forEach(e => console.log(`Employee ${e.name}, ${e.role}`))
+const mixedData = new DataCollection<Person | Product>([...people, ...products])
+const filteredProducts = mixedData.filter<Product>()
+filteredProducts.forEach(e => console.log(`Product ${e.name}, ${e.price}`))
