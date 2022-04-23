@@ -1,11 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const dataTypes_1 = require("./dataTypes");
-let myVar = "name";
-myVar = "price";
-myVar = "someOtherName";
+function getValue(item, keyname) {
+    console.log(`Value: ${item[keyname]}`);
+}
+const p = new dataTypes_1.Product("Running Shoes", 100);
+getValue(p, "name");
+getValue(p, "price");
+const e = new dataTypes_1.Employee("Bob Smith", "Sales");
+getValue(e, "name");
+getValue(e, "role");
 const products = [
-    new dataTypes_1.Product("Running Shoes", 100),
+    p,
     new dataTypes_1.Product("Hat", 25),
 ];
 class Collection {

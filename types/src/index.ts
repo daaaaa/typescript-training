@@ -5,8 +5,9 @@ function getValue<T, K extends keyof T>(item: T, keyname: K) {
 }
 
 const p = new Product("Running Shoes", 100)
-getValue(p, "name")
-getValue(p, "price")
+getValue<Product, "name">(p, "name")
+getValue<Product, ("name" | "price")>(p, "price")
+getValue<Product, keyof Product>(p, "price")
 
 const e = new Employee("Bob Smith", "Sales")
 getValue(e, "name")
