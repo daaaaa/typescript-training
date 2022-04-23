@@ -1,12 +1,16 @@
 import { City, Person, Product, Employee } from "./dataTypes"
 
-type Filter<T, U> = T extends U ? never : T
+type changeProps<T, U, V> = {
+    [P in keyof T]: T[P] extends U ? V : T[P]
+}
 
-function FilterArray<T, U>(
-    data: T[],
-    predicate: (item) => item is U
-): Exclude<T, U>[] {
-    return data.filter(item => !predicate(item)) as any
+type modifiedProduct = changeProps<Product, number, string>
+
+function convertProduct(p: Product): modifiedProduct {
+    return {
+        name: p.name,
+        price: `$${p.price.toFixed(2)}`,
+    }
 }
 
 const dataArray = [
@@ -15,9 +19,6 @@ const dataArray = [
     new Product("Lifejacket", 48.95),
 ]
 
-function isProduct(item: any): item is Product {
-    return item instanceof Product
-}
+const kayak = convertProduct(dataArray[0] as Product)
+console.log(`Product: ${kayak.name}, ${kayak.price}`)
 
-const filteredData: Person[] = FilterArray(dataArray, isProduct)
-filteredData.forEach(item => console.log(`Person: ${item.name}`))
