@@ -5,7 +5,7 @@ type Filter<T, U> = T extends U ? never : T
 function FilterArray<T, U>(
     data: T[],
     predicate: (item) => item is U
-): Filter<T, U>[] {
+): Exclude<T, U>[] {
     return data.filter(item => !predicate(item)) as any
 }
 
