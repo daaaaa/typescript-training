@@ -20,10 +20,10 @@ class Collection {
     get count() {
         return this.items.size;
     }
-    values() {
+    [Symbol.iterator]() {
         return this.items.values();
     }
 }
 const productCollection = new Collection(products);
 console.log(`There are ${productCollection.count} products`);
-[...productCollection.values()].forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
+[...productCollection].forEach(p => console.log(`Product: ${p.name}, ${p.price}`));
