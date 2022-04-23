@@ -2,6 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const p = { name: "Kayak", price: 275 };
 console.log(`Mapped type: ${p.name}, ${p.price}`);
+const q = { name: "Kayak", "price": "apples" };
+console.log(`Changed type #1: ${q.name}, ${q.price}`);
+const r = { nameProperty: "Kayak", priceProperty: 12 };
+console.log(`Changed typed #2: ${r.nameProperty}, ${r.priceProperty}`);
 // const e = new Employee("Bob Smith", "Sales")
 // const products = [
 //     p,
