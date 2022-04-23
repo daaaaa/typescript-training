@@ -29,11 +29,15 @@ class DataCollection<T> {
         this.items.push(...initialItems)
     }
 
-    filter<V extends T>(): V[] {
-        return this.items.filter(item => item instanceof V) as V[]
+    filter<V extends T>(predicate: (target: any) => target is V): V[] {
+        return this.items.filter(item => predicate(item)) as V[]
     }
 }
 
 const mixedData = new DataCollection<Person | Product>([...people, ...products])
-const filteredProducts = mixedData.filter<Product>()
+function isProduct(target): target is Product {
+    return target instanceof Product
+}
+
+const filteredProducts = mixedData.filter<Product>(isProduct)
 filteredProducts.forEach(e => console.log(`Product ${e.name}, ${e.price}`))
