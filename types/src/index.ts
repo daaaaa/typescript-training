@@ -1,16 +1,15 @@
 import { City, Person, Product, Employee } from "./dataTypes"
 
-type SelectProperties<T, K extends keyof T> = {
-    [P in K]: T[P]
+type SelectPropsAndMakeOptional<T, K extends keyof T> = {
+    [P in K]?: T[P]
 }
 
+type BuildInMapped<T, K extends keyof T> = Readonly<Partial<Pick<T,K>>>
 
-const p1: SelectProperties<Product, "name"> = { name: "Kayak" }
-const p2: Pick<Product, "name"> = { name: "Kayak" }
-const p3: Omit<Product, "price"> = { name: "Kayak" }
+const p1: SelectPropsAndMakeOptional<Product, "name"> = { name: "Kayak" }
+const p2: Pick<Product, "name" | "price"> = { name: "Kayak", price: 275 }
 console.log(`Custom Mapped type: ${p1.name}`)
-console.log(`Built-in Pick Mapped type: ${p2.name}`)
-console.log(`Built-in Omit Mapped type: ${p3.name}`)
+console.log(`Built-in chained type: ${p2.name}, ${p2.price}`)
 
 // const e = new Employee("Bob Smith", "Sales")
 // const products = [
