@@ -1,26 +1,14 @@
 import { City, Person, Product, Employee } from "./dataTypes"
 
-type MappedProduct = {
-    [P in keyof Product]: Product[P]
+type Mapped<T> = {
+    [P in keyof T]: T[P]
 }
 
-const p: MappedProduct = { name: "Kayak", price: 275 }
+const p: Mapped<Product> = { name: "Kayak", price: 275 }
 console.log(`Mapped type: ${p.name}, ${p.price}`)
 
-type AllowsStrings = {
-    [P in keyof Product]: Product[P] | string
-}
-
-const q: AllowsStrings = {name: "Kayak", "price": "apples"}
-console.log(`Changed type #1: ${q.name}, ${q.price}`)
-
-type ChangesNames = {
-    [P in keyof Product as `${P}Property`]: Product[P]
-}
-
-const r: ChangesNames = { nameProperty: "Kayak", priceProperty: 12 }
-console.log(`Changed typed #2: ${r.nameProperty}, ${r.priceProperty}`)
-
+const c: Mapped<City> = { name: "London", population: 8136000 }
+console.log(`Mapped type: ${c.name}, ${c.population}`)
 
 // const e = new Employee("Bob Smith", "Sales")
 // const products = [
