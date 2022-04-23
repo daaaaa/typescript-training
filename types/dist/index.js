@@ -6,17 +6,19 @@ const products = [
     new dataTypes_1.Product("Hat", 25),
 ];
 class Collection {
-    constructor(items = []) {
-        this.items = items;
+    constructor(initialItems = []) {
+        this.initialItems = initialItems;
+        this.items = new Map();
+        this.add(...initialItems);
     }
     add(...newItems) {
-        this.items.push(...newItems);
+        newItems.forEach(newItem => this.items.set(newItem.name, newItem));
     }
     get(name) {
-        return this.items.find(item => item.name === name);
+        return this.items.get(name);
     }
     get count() {
-        return this.items.length;
+        return this.items.size;
     }
 }
 const productCollection = new Collection(products);
