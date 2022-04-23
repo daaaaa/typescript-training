@@ -41,16 +41,22 @@ class DataCollection<T extends { name: string }> {
     }
 }
 
-class SearchableCollection extends DataCollection<Employee> {
-    constructor(initialItems: Employee[]) {
+class SearchableCollection<T extends Employee | Person> extends DataCollection<T> {
+    constructor(initialItems: T[]) {
         super(initialItems)
     }
 
-    find(searchTerm: string): Employee[] {
-        return this.items.filter(item => item.name === searchTerm || item.role === searchTerm)
+    find(searchTerm: string): T[] {
+        return this.items.filter(item => {
+            if (item instanceof Employee) {
+                return item.name === searchTerm || item.role === searchTerm
+            } else if (item instanceof Person) {
+                return item.name === searchTerm || item.city === searchTerm
+            }
+        })
     }
 }
 
-const employeeData = new SearchableCollection(employees)
+const employeeData = new SearchableCollection<Employee>(employees)
 const foundEmployees = employeeData.find("Sales")
 foundEmployees.forEach(e => console.log(`Employee ${e.name}, ${e.role}`))
