@@ -39,32 +39,25 @@ const employees = [
     new Employee("Alice Jones", "Sales"),
 ]
 
-// type dataType = Person | Product
+class ArrayCollection<DataType extends shapeType> implements Collection<DataType> {
+    private items: DataType[] = []
 
-class DataCollection<T> {
-    protected items: T[] = []
-
-    constructor(initialItems: T[]) {
-        this.items.push(...initialItems)
+    add(...newItems): void {
+        this.items.push(...newItems)
     }
 
-    filter<V extends T>(predicate: (target: any) => target is V): V[] {
-        return this.items.filter(item => predicate(item)) as V[]
+    get(name: string): DataType {
+        return this.items.find(item => item.name === name)
     }
 
-    static reverse<ArrayType>(items: ArrayType[]): ArrayType[] {
-        return items.reverse()
+    get count(): number {
+        return this.items.length
     }
 }
 
-const mixedData = new DataCollection<Person | Product>([...people, ...products])
-function isProduct(target): target is Product {
-    return target instanceof Product
-}
-
-const filteredProducts = mixedData.filter<Product>(isProduct)
-filteredProducts.forEach(e => console.log(`Product ${e.name}, ${e.price}`))
-
-
-const reversedCities = DataCollection.reverse<City>(cities)
-reversedCities.forEach(e => console.log(`City ${e.name}, ${e.population}`))
+const peopleCollection: Collection<Person> = new ArrayCollection<Person>()
+peopleCollection.add(
+    new Person("Bob Smith", "London"),
+    new Person("Dora Peters", "New York"),
+)
+console.log(`Collection size: ${peopleCollection.count}`)
