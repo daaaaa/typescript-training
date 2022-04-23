@@ -1,29 +1,16 @@
 import { City, Person, Product, Employee } from "./dataTypes"
 
-// type MakeOptional<T> = {
-//     [P in keyof T]?: T[P]
-// }
-
-// type MakeRequired<T> = {
-//     [P in keyof T]-?: T[P]
-// }
-
-// type MakeReadOnly<T> = {
-//     readonly [P in keyof T]: T[P]
-// }
-
-type MakeReadWrite<T> = {
-    -readonly [P in keyof T]: T[P]
+type SelectProperties<T, K extends keyof T> = {
+    [P in K]: T[P]
 }
 
-type optionalType = Partial<Product>
-type requiredType = Required<optionalType>
-type readOnlyType = Readonly<requiredType>
-type readWriteType = MakeReadWrite<readOnlyType>
 
-
-const p: readWriteType = { name: "Kayak", price: 275 }
-console.log(`Mapped type: ${p.name}, ${p.price}`)
+const p1: SelectProperties<Product, "name"> = { name: "Kayak" }
+const p2: Pick<Product, "name"> = { name: "Kayak" }
+const p3: Omit<Product, "price"> = { name: "Kayak" }
+console.log(`Custom Mapped type: ${p1.name}`)
+console.log(`Built-in Pick Mapped type: ${p2.name}`)
+console.log(`Built-in Omit Mapped type: ${p3.name}`)
 
 // const e = new Employee("Bob Smith", "Sales")
 // const products = [

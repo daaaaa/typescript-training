@@ -1,7 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const p = { name: "Kayak", price: 275 };
-console.log(`Mapped type: ${p.name}, ${p.price}`);
+const p1 = { name: "Kayak" };
+const p2 = { name: "Kayak" };
+const p3 = { name: "Kayak" };
+console.log(`Custom Mapped type: ${p1.name}`);
+console.log(`Built-in Pick Mapped type: ${p2.name}`);
+console.log(`Built-in Omit Mapped type: ${p3.name}`);
 // const e = new Employee("Bob Smith", "Sales")
 // const products = [
 //     p,
