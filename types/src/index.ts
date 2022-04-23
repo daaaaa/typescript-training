@@ -1,6 +1,8 @@
 import { City, Person, Product, Employee } from "./dataTypes"
 
-function getValue<T, P extends keyof T>(data: T, propName: P): T[P] {
+type targetKeys<T> = T extends (infer U)[] ? keyof U : keyof T
+
+function getValue<T, P extends targetKeys<T>>(data: T, propName: P): T[P] {
     if (Array.isArray(data)) {
         return data[0][propName]
     } else {
