@@ -1,20 +1,25 @@
 import { City, Person, Product, Employee } from "./dataTypes"
 
-function getValue<T, K extends keyof T>(item: T, keyname: K) {
-    console.log(`Value: ${item[keyname]}`);
+function getValue<T, K extends keyof T>(item: T, keyname: K): T[K] {
+    return item[keyname]
 }
 
 type priceType = Product["price"]
 type allTypes = Product[keyof Product]
 
 const p = new Product("Running Shoes", 100)
-getValue<Product, "name">(p, "name")
+
 getValue<Product, ("name" | "price")>(p, "price")
 getValue<Product, keyof Product>(p, "price")
+
+console.log(getValue<Product, "name">(p, "name"))
+console.log(getValue(p, "price"))
 
 const e = new Employee("Bob Smith", "Sales")
 getValue(e, "name")
 getValue(e, "role")
+console.log(getValue(e, "name"))
+console.log(getValue(e, "role"))
 
 const products = [
     p,
