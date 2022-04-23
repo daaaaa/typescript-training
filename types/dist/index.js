@@ -1,11 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const p1 = { name: "Kayak" };
-const p2 = { name: "Kayak" };
-const p3 = { name: "Kayak" };
-console.log(`Custom Mapped type: ${p1.name}`);
-console.log(`Built-in Pick Mapped type: ${p2.name}`);
-console.log(`Built-in Omit Mapped type: ${p3.name}`);
+const p1 = { name: "Bob", city: "London" };
+const p2 = { name: "Alice", city: "Paris" };
+console.log(`Custom Mapped type: ${p1.name}, ${p2.city}`);
+console.log(`Built-in Record type: ${p2.name}, ${p2.city}`);
 // const e = new Employee("Bob Smith", "Sales")
 // const products = [
 //     p,
