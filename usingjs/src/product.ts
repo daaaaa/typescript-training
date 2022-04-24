@@ -11,9 +11,6 @@ export enum SPORT {
 }
 
 export class SportsProduct extends Product {
-    it(it: any) {
-        throw new Error('Method not implemented.');
-    }
     private sportsArray: SPORT[];
 
     constructor(
