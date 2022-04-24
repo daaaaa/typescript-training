@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const debug = require("debug");
 const product_1 = require("./product");
 const cart_1 = require("./cart");
 const formatters_1 = require("./formatters");
@@ -10,6 +11,8 @@ const cart = new cart_1.default('Bob');
 cart.addProduct(kayak, 1);
 cart.addProduct(hat, 1);
 cart.addProduct(hat, 2);
-formatters_1.sizeFormatter('Cart', cart.itemCount);
-formatters_1.costFormatter('Cart', cart.totalPrice);
-formatters_1.writeMessage('Test message');
+(0, formatters_1.sizeFormatter)('Cart', cart.itemCount);
+(0, formatters_1.costFormatter)('Cart', cart.totalPrice);
+const db = debug('Example App', true);
+db.enabled = true;
+db('message: %o', 'Test message');

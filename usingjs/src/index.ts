@@ -1,3 +1,4 @@
+import debug = require('debug');
 import { SportsProduct, SPORT } from './product';
 import Cart from './cart';
 import { sizeFormatter, costFormatter, writeMessage } from './formatters';
@@ -13,4 +14,7 @@ cart.addProduct(hat, 2);
 
 sizeFormatter('Cart', cart.itemCount);
 costFormatter('Cart', cart.totalPrice);
-writeMessage('Test message');
+
+const db = debug('Example App', true);
+db.enabled = true;
+db('message: %o', 'Test message');
