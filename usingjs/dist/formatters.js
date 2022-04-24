@@ -1,10 +1,11 @@
 "use strict";
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.costFormatter = exports.sizeFormatter = void 0;
+exports.costFormatter = exports.sizeFormatter = exports.writeMessage = void 0;
 function writeMessage(message) {
     console.log(message);
 }
+exports.writeMessage = writeMessage;
 function sizeFormatter(thing, count) {
     writeMessage(`The ${thing} has ${count} items`);
 }
