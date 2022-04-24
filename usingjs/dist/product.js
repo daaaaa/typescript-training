@@ -24,9 +24,6 @@ class SportsProduct extends Product {
         this.price = price;
         this.sportsArray = sportArray;
     }
-    it(it) {
-        throw new Error('Method not implemented.');
-    }
     usedForSport(s) {
         return this.sportsArray.includes(s);
     }

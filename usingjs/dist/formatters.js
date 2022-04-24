@@ -9,7 +9,17 @@ function sizeFormatter(thing, count) {
     writeMessage(`The ${thing} has ${count} items`);
 }
 exports.sizeFormatter = sizeFormatter;
+/**
+ * Format something that has a money value
+ * @param { string } thing - the name of the item
+ * @param { number | string } cost - the value associated with the item
+ */
 function costFormatter(thing, cost) {
-    writeMessage(`The ${thing} costs $${cost.toFixed(2)} items`, true);
+    if (typeof cost === 'number') {
+        writeMessage(`The ${thing} costs $${cost.toFixed(2)} items`, true);
+    }
+    else {
+        writeMessage(`The ${thing} costs $${cost}`);
+    }
 }
 exports.costFormatter = costFormatter;
