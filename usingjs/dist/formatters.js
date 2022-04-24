@@ -1,4 +1,5 @@
 "use strict";
+// @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.costFormatter = exports.sizeFormatter = void 0;
 function writeMessage(message) {

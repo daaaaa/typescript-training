@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 function writeMessage(message) {
     console.log(message);
 }
