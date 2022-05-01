@@ -1,22 +1,25 @@
+import 'bootstrap/dist/css/bootstrap.css';
+
 import {LocalDataSource} from './data/localDataSource';
+import {HtmlDisplay} from './htmlDisplay';
 
-async function displayData(): Promise<string> {
-    const ds = new LocalDataSource();
-    const allProducts = await ds.getProducts('name');
-    const categories = await ds.getCategories();
-    const chessProducts = await ds.getProducts('name', 'Chess');
+const ds = new LocalDataSource();
 
-    let result = '';
-    allProducts.forEach(product => {
-        result += `Product: ${product.name}, ${product.category}\n`;
-    });
-    categories.forEach(category => {
-        result += `Category: ${category}\n`;
-    });
-    chessProducts.forEach(product => ds.order.addProduct(product, 1));
-    result += `Order total: ($${ds.order.total.toFixed(2)})`;
-    return result;
+async function displayData(): Promise<HTMLElement> {
+    const display = new HtmlDisplay();
+    display.props = {
+        products: await ds.getProducts('name'),
+        order: ds.order,
+    };
+    return display.getContent();
 }
 
-displayData()
-    .then(result => console.log(result));
+document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+        displayData().then(elem => {
+            const rootElement = document.getElementById('app');
+            rootElement.innerHTML = '';
+            rootElement.appendChild(elem);
+        });
+    }
+};
