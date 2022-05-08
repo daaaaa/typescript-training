@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
-import {LocalDataSource} from './data/localDataSource';
+// Import {LocalDataSource} from './data/localDataSource';
+import {RemoteDataSource} from './data/remoteDataSource';
 import {HtmlDisplay} from './htmlDisplay';
 
-const ds = new LocalDataSource();
+const ds = new RemoteDataSource();
 
 async function displayData(): Promise<HTMLElement> {
     const display = new HtmlDisplay();
