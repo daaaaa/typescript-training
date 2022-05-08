@@ -13,7 +13,7 @@ export class ProductList {
         // eslint-disable-next-line no-unused-vars
         addToOrderCallback?: (product: Product, quantity: number) => void,
         // eslint-disable-next-line no-unused-vars
-        filteCallback?: (category: string) => void,
+        filterCallback?: (category: string) => void,
     };
 
     @addClass('select', 'bg-info', 'm-1')
@@ -25,7 +25,7 @@ export class ProductList {
                         <CategoryList
                             categories={this.props.categories}
                             selectedCategory={this.props.selectedCategory}
-                            callback={this.props.filteCallback}
+                            callback={this.props.filterCallback}
                         />
                     </div>
                     <div className="col-9 p-2">
