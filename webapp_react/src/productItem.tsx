@@ -6,10 +6,6 @@ interface Props {
     callback: (product: Product, quantity: number) => void;
 }
 
-interface State {
-    quantity: number;
-}
-
 export const ProductItem: FunctionComponent<Props> = props => {
     const [quantity, setQuantity] = useState<number>(1);
 
@@ -30,7 +26,7 @@ export const ProductItem: FunctionComponent<Props> = props => {
             Add To Cart
                 </button>
                 <select className="form-control-inline float-right m-1"
-                    onChange={ ev => {
+                    onChange={ (ev: ChangeEvent<HTMLSelectElement>) => {
                         setQuantity(Number(ev.target.value));
                     } }>
                     <option>1</option>

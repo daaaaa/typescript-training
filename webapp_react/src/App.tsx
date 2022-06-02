@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-          Learn React
-                </a>
-            </header>
-        </div>
-    );
+import React, {Component} from 'react';
+import {Product, Order} from './data/entities';
+import {ProductList} from './productList';
+const testData: Product[] = [1, 2, 3, 4, 5].map(num =>
+    ({id: num, name: `Prod${num}`, category: `Cat${num % 2}`,
+        description: `Product ${num}`, price: 100}));
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props {
 }
+interface State {
+    order: Order;
+}
+export default class App extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            order: new Order(),
+        };
+    }
 
-export default App;
+    render = () =>
+        <div className="App">
+            <ProductList products={ testData }
+                categories={this.categories }
+                order={ this.state.order }
+                addToOrder= { this.addToOrder } />
+        </div>;
+
+    get categories(): string[] {
+        return [...new Set(testData.map(p => p.category))];
+    }
+
+    addToOrder = (product: Product, quantity: number) => {
+        this.setState(state => {
+            const order = new Order();
+            state.order.orderLines.forEach(({product, quantity}) => {
+                order.addProduct(product, quantity);
+            });
+            order.addProduct(product, quantity);
+            return {order};
+        });
+    };
+}

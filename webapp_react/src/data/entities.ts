@@ -8,7 +8,6 @@ export type Product = {
 
 export class OrderLine {
     constructor(public product: Product, public quantity: number) {
-
     }
 
     get total(): number {
