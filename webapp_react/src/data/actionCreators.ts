@@ -2,7 +2,7 @@ import {ACTIONS, AddProductdAction, ModifyOrderAction, ResetOrderAction} from '.
 import {Product} from './entities';
 
 export const addProduct = (...products: Product[]): AddProductdAction => ({
-    type: ACTIONS.ADD_PRODUCT,
+    type: ACTIONS.ADD_PRODUCTS,
     payload: products,
 });
 
