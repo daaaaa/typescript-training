@@ -3,6 +3,7 @@ import {Header} from './header';
 import {ProductItem} from './productItem';
 import {CategoryList} from './categoryList';
 import {Product, Order} from './data/entities';
+// Import {NavLink} from 'react-router-dom';
 interface Props {
     products: Product[];
     categories: string[];
@@ -21,7 +22,7 @@ export class ProductList extends Component<Props, State> {
     }
 
     render() {
-        return <div>
+        return (<div>
             <Header order={ this.props.order } />
             <div className="container-fluid">
                 <div className="row">
@@ -39,7 +40,7 @@ export class ProductList extends Component<Props, State> {
                         } </div>
                 </div>
             </div>
-        </div>;
+        </div>);
     }
 
     get products(): Product[] {
