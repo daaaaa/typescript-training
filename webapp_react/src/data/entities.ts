@@ -21,7 +21,7 @@ export class Order {
 
     constructor(initialLines?: OrderLine[]) {
         if (initialLines) {
-            initialLines.forEach(elem => this.lines.set(elem.product.id));
+            initialLines.forEach(elem => this.lines.set(elem.product.id, elem));
         }
     }
 
